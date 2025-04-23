@@ -10,6 +10,8 @@ We knew from the beginning that we wanted to create a simple and clean page, but
 ### STORYBOARD:
 After the brainstorming session, we created a storyboard to show how our page will look in the end. The image of the storyboard is saved as ![storyboard](storyboard.png) in the documentation folder. We tried to make it with detailed descriptions and drawing, but without making the drawing too detailed.
 
+We also created a small low-fidility prototype of our idea in figma, to remember how we wanted the layout to be.
+
 ### GETTING STARTED AND GITHUB PAGES:
 (Instructions for getting started and link to Github pages.)
 
