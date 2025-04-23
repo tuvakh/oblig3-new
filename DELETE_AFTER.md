@@ -1,8 +1,14 @@
+ALL TEKST SOM SKAL/KAN VÆRE MED
+Ikke det i parentes
+
+(STORYBOARD 1)
 Goal 6
 Ensure availability and sustainable management of water and sanitation for all
 
+(STORYBOARD 3)
 "Half the world experiences severe water scarcity every year — and the number is growing."
 
+(STORYBOARD 4)
 Target 6.1: 
 By 2030, achieve universal and equitable access to safe and affordable drinking water for all
 
@@ -27,9 +33,10 @@ By 2030, expand international cooperation and capacity-building support to devel
 Target 6.b:
 Support and strengthen the participation of local communities in improving water and sanitation management
 
-
+(STORYBOARD 5)
 The Clock Is Ticking on SDG 6 
 
+(STORYBOARD 6 & 7)
 Despite progress in some areas, the world is falling dangerously behind on Sustainable Development Goal 6. As of 2022, not a single SDG 6 target is on track to be met.
 
 	• 2.2 billion people still lack access to safely managed drinking water.
@@ -51,6 +58,7 @@ While surface water has grown overall, some regions face dangerous losses due to
 
 Funding is finally rising again, with water sector aid up 10% in 2022, reversing a five-year dip.
 
+(STORYBOARD 8)
 We Can’t Afford to Wait
 The message is clear: progress is possible, but not at the current pace. Without bold, coordinated global action, millions will continue to live without the most basic of human rights—clean water and sanitation. It’s time to prioritize integrated water management, climate adaptation, and cross-border cooperation.
 
