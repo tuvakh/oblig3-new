@@ -36,9 +36,9 @@ Support and strengthen the participation of local communities in improving water
 (STORYBOARD 5)
 The Clock Is Ticking on SDG 6 
 
-(STORYBOARD 6 & 7)
 Despite progress in some areas, the world is falling dangerously behind on Sustainable Development Goal 6. As of 2022, not a single SDG 6 target is on track to be met.
 
+(STORYBOARD 6 & 7)
 	• 2.2 billion people still lack access to safely managed drinking water.
 	• 3.5 billion people live without safely managed sanitation.
 	• Between 2002 and 2021, droughts affected over 1.4 billion people.
