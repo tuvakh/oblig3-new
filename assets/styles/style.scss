@@ -114,21 +114,24 @@ img {
 }
 
 // Facts about goal 6
-.intro-facts {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.facts {
+    &__intro {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-block: 5rem;
+    }
 
     &__text {
         max-width: 80ch;
     }
-}
-
-.facts {
-    display: grid;
-    gap: 10rem;
-
+    
+    &__container {
+        display: grid;
+        gap: 10rem;
+    }
+    
     &__item {
         display: flex;
         align-items: center;
@@ -139,21 +142,18 @@ img {
         text-align: right;
     }
 
-    &__text {
-        width: 60ch;
-    }
-
     img {
         width: 80px;
     }
 }
 
 .message {
+    border-top: 0.1rem solid #09557E;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 2rem;
+    padding-block-start: 4rem;
 
     &__text {
         max-width: 75ch;
