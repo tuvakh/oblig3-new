@@ -50,4 +50,38 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+:root {
+  --primary-color: black;
+  --secondary-color: white;
+  --text-color: white;
+  --line-height-base: 1.2;
+  --line-height-paragraph: 1.1;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: var(--line-height-base);
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+  line-height: var(--line-height-paragraph);
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
