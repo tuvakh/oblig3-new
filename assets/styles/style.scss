@@ -1,0 +1,57 @@
+// Imports all css assets
+@use "reset.css";
+
+// Variables
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+    --text-color: white;
+    //Font styles
+    --line-height-base: 1.2;
+    --line-height-paragraph: 1.1;
+}
+
+//Globals
+body {
+    font-family: sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: var(--line-height-base);
+}
+
+main {
+    padding: 1.2em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1em;
+    line-height: var(--line-height-paragraph);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+// Section 1
+.section-top {
+    color: aquamarine;
+    text-align: center;
+
+    &__title {
+        font-size: 3.5em;
+    }
+
+    &__icon {
+        max-width: 20%;
+    }
+}
