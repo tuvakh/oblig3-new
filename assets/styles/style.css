@@ -80,7 +80,8 @@ main {
   padding: 3rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: "bebasneue";
 }
 
@@ -126,6 +127,7 @@ img {
 }
 
 .section-wave {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,9 +139,55 @@ img {
   font-size: 3em;
 }
 .section-wave__icon {
-  max-width: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: url(/assets/elements/wave.svg) repeat-x;
+  animation: wave-move 15s linear infinite;
 }
 
+@keyframes wave-move {
+  100% {
+    background-position-x: -50%;
+  }
+}
+.horizontal-scroll {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  gap: 2rem;
+  background-color: #09557e;
+  align-items: center;
+  overflow-x: hidden;
+}
+.horizontal-scroll .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 70vh;
+  width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1.5px solid black;
+  border-radius: 20px;
+}
+.horizontal-scroll .horizontal > * {
+  text-align: center;
+}
+.horizontal-scroll .horizontal:nth-child(1) {
+  margin-inline-start: 2rem;
+}
+.horizontal-scroll .horizontal__img {
+  box-sizing: border-box;
+  display: block;
+  width: 15vw;
+  max-width: 80ch;
+}
 .facts__intro {
   text-align: center;
   display: flex;
@@ -148,7 +196,7 @@ img {
   padding-block: 5rem;
 }
 .facts__text {
-  max-width: 80ch;
+  max-width: 70ch;
 }
 .facts__container {
   display: grid;
