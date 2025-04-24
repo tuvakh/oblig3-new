@@ -20,8 +20,8 @@
     --backround-color: #0082b5;
     --text-color: white;
     //Font styles
-    --line-height-base: 1.2rem;
-    --line-height-paragraph: 1.5rem;
+    --line-height-base: 1.2;
+    --line-height-paragraph: 1.6;
 }
 
 //Globals
@@ -50,7 +50,8 @@ h2 {
     margin-block-end: 1rem;
 }
 
-p, li {
+p,
+li {
     font-size: 1.1rem;
     font-weight: 400;
     line-height: var(--line-height-paragraph);
@@ -100,16 +101,17 @@ img {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 30%;
         background: url(/assets/elements/wave.svg) repeat-x;
+        background-size: contain;
         animation: wave-move 15s linear infinite;
     }
 }
 
 @keyframes wave-move {
     100% {
-        background-position-x: -50%;
+        background-position-x: 50%;
     }
 }
 
@@ -181,15 +183,14 @@ img {
     padding: 2.5rem;
     text-align: center;
     color: #8ba7b5;
-    background-color: #09557E;
+    background-color: #09557e;
 
     &__text {
         font-size: 0.8rem;
     }
 }
 
-
-.horizontal-scroll{
+.horizontal-scroll {
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -197,7 +198,7 @@ img {
     background-color: #09557e;
     align-items: center;
     overflow-x: hidden;
-    .horizontal{
+    .horizontal {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -210,18 +211,17 @@ img {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border: 1.5px solid black;
         border-radius: 20px;
-        & > *{
+        & > * {
             text-align: center;
         }
-        &:nth-child(1){
+        &:nth-child(1) {
             margin-inline-start: 2rem;
         }
-        
-        &__img{
+
+        &__img {
             box-sizing: border-box;
             display: block;
             width: 15vw;
         }
     }
 }
-
