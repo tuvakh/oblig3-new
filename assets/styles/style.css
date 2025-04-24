@@ -160,6 +160,41 @@ img {
   align-items: center;
 }
 .intro-facts__text {
+  max-width: 70ch;
+}
+.horizontal-scroll {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  gap: 2rem;
+  background-color: #09557e;
+  align-items: center;
+  overflow-x: hidden;
+}
+.horizontal-scroll .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 70vh;
+  width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1.5px solid black;
+  border-radius: 20px;
+}
+.horizontal-scroll .horizontal > * {
+  text-align: center;
+}
+.horizontal-scroll .horizontal:nth-child(1) {
+  margin-inline-start: 2rem;
+}
+.horizontal-scroll .horizontal__img {
+  box-sizing: border-box;
+  display: block;
+  width: 15vw;
   max-width: 80ch;
 }
 
