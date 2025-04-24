@@ -63,6 +63,7 @@ table {
 :root {
   --primary-color: black;
   --secondary-color: white;
+  --backround-color: #0082b5;
   --text-color: white;
   --line-height-base: 1.2rem;
   --line-height-paragraph: 1.5rem;
@@ -105,14 +106,38 @@ img {
 }
 
 .section-top {
-  color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 100vh;
+  gap: 2%;
 }
 .section-top__title {
   font-size: 3.5rem;
 }
+.section-top__text {
+  font-size: 2em;
+  max-width: 50%;
+}
 .section-top__icon {
-  max-width: 20%;
+  max-width: 6%;
+}
+
+.section-wave {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+.section-wave__text {
+  font-size: 3em;
+}
+.section-wave__icon {
+  max-width: 10%;
 }
 
 .intro-facts {
