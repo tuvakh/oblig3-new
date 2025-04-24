@@ -18,6 +18,7 @@
 :root {
     --primary-color: black;
     --secondary-color: white;
+    --backround-color: #0082b5;
     --text-color: white;
     //Font styles
     --line-height-base: 1.2;
@@ -62,15 +63,39 @@ img {
 
 // Section 1
 .section-top {
-    color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 100vh;
+    gap: 2%;
 
     &__title {
         font-size: 3.5em;
     }
-
+    &__text {
+        font-size: 2em;
+        max-width: 50%;
+    }
     &__icon {
-        max-width: 20%;
+        max-width: 6%;
+    }
+}
+
+.section-wave {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+
+    &__text {
+        font-size: 3em;
+    }
+    &__icon {
+        max-width: 10%;
     }
 }
 
