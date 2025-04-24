@@ -1,6 +1,19 @@
 // Imports all css assets
 @use "reset.css";
 
+// Heading font
+@font-face {
+    font-family: "bebasneue";
+    src: url(../fonts/bebasneue/bebasneue-regular.ttf);
+}
+
+// Main font
+@font-face {
+    font-family: "open-sans";
+    src: url(../fonts/open_sans/OpenSans-VariableFont_wdth\,wght.ttf);
+    font-weight: 400;
+}
+
 // Variables
 :root {
     --primary-color: black;
@@ -14,14 +27,19 @@
 
 //Globals
 body {
-    font-family: sans-serif;
+    font-family: 'open-sans', sans-serif;
     background-color: var(--primary-color);
     color: var(--text-color);
     line-height: var(--line-height-base);
+    padding: 3rem;
 }
 
 main {
     padding: 1.2em;
+}
+
+h1, h2 {
+    font-family: 'bebasneue';
 }
 
 h1 {
@@ -29,11 +47,11 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 p {
-    font-size: 1em;
+    font-size: 1.1em;
     line-height: var(--line-height-paragraph);
 }
 
@@ -78,5 +96,19 @@ img {
     }
     &__icon {
         max-width: 10%;
+    }
+}
+
+
+// Facts about goal 6
+.intro-facts {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+        max-width: 70ch;
     }
 }
