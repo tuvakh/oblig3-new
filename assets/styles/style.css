@@ -108,5 +108,20 @@ img {
   max-width: 50%;
 }
 .section-top__icon {
+  max-width: 6%;
+}
+
+.section-wave {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+.section-wave__text {
+  font-size: 3em;
+}
+.section-wave__icon {
   max-width: 10%;
 }/*# sourceMappingURL=style.css.map */

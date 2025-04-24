@@ -43,7 +43,7 @@ img {
     height: auto;
 }
 
-// Section 1 - Animated waterdrop
+// Section 1
 .section-top {
     display: flex;
     flex-direction: column;
@@ -60,7 +60,22 @@ img {
         font-size: 2em;
         max-width: 50%;
     }
+    &__icon {
+        max-width: 6%;
+    }
+}
 
+.section-wave {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+
+    &__text {
+        font-size: 3em;
+    }
     &__icon {
         max-width: 10%;
     }
