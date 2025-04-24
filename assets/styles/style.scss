@@ -19,6 +19,10 @@ body {
     line-height: var(--line-height-base);
 }
 
+main {
+    padding: 1.2em;
+}
+
 h1 {
     font-size: 2em;
 }
@@ -39,3 +43,15 @@ img {
 }
 
 // Section 1
+.section-top {
+    color: aquamarine;
+    text-align: center;
+
+    &__title {
+        font-size: 3.5em;
+    }
+
+    &__icon {
+        max-width: 20%;
+    }
+}
