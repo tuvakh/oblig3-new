@@ -59,14 +59,13 @@ table {
 @font-face {
   font-family: "open-sans";
   src: url(../fonts/open_sans/OpenSans-VariableFont_wdth\,wght.ttf);
-  font-weight: 400;
 }
 :root {
   --primary-color: black;
   --secondary-color: white;
   --text-color: white;
-  --line-height-base: 1.2;
-  --line-height-paragraph: 1.1;
+  --line-height-base: 1.2rem;
+  --line-height-paragraph: 1.5rem;
 }
 
 body {
@@ -74,11 +73,10 @@ body {
   background-color: var(--primary-color);
   color: var(--text-color);
   line-height: var(--line-height-base);
-  padding: 3rem;
 }
 
 main {
-  padding: 1.2em;
+  padding: 3rem;
 }
 
 h1, h2 {
@@ -86,15 +84,17 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
+  margin-block-end: 1rem;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
-p {
-  font-size: 1.1em;
+p, li {
+  font-size: 1.1rem;
+  font-weight: 400;
   line-height: var(--line-height-paragraph);
 }
 
@@ -109,7 +109,7 @@ img {
   text-align: center;
 }
 .section-top__title {
-  font-size: 3.5em;
+  font-size: 3.5rem;
 }
 .section-top__icon {
   max-width: 20%;
@@ -117,11 +117,65 @@ img {
 
 .intro-facts {
   text-align: center;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .intro-facts__text {
-  max-width: 70ch;
+  max-width: 80ch;
+}
+
+.facts {
+  display: grid;
+  gap: 10rem;
+}
+.facts__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.facts__item--reverse {
+  text-align: right;
+}
+.facts__text {
+  width: 60ch;
+}
+.facts img {
+  width: 80px;
+}
+
+.message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 2rem;
+}
+.message__text {
+  max-width: 75ch;
+}
+.message__slogan {
+  font-size: 1.5rem;
+  margin-block: 3rem;
+  color: rgb(72, 178, 239);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.message__btn {
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer {
+  padding: 2.5rem;
+  text-align: center;
+  color: #8ba7b5;
+  background-color: #09557E;
+}
+.footer__text {
+  font-size: 0.8rem;
 }/*# sourceMappingURL=style.css.map */
