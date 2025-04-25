@@ -205,7 +205,7 @@ img {
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        height: 70vh;
+        height: 80vh;
         width: 30%;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border: 1.5px solid black;
@@ -239,3 +239,19 @@ img {
     }
 }
 
+@media (max-width: 799px) {
+    .horizontal {
+      flex-direction: column ;
+      height: auto ;
+      padding: 2rem 0;
+    }
+  
+    .horizontal__container {
+      width: 80% ;
+      height: auto;
+      &:nth-child(1){
+        margin-inline-start: 0;
+    }
+    }
+  }
+  
