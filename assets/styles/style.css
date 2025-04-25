@@ -165,30 +165,12 @@ img {
   transform: translateX(0);
   background: url(/assets/elements/wave.svg) repeat-x;
 }
-.facts__intro {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-block: 5rem;
+
+.history__part {
+  height: 100vh;
 }
-.facts__text {
-  max-width: 80ch;
-}
-.facts__container {
-  display: grid;
-  gap: 10rem;
-}
-.facts__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.facts__item--reverse {
-  text-align: right;
-}
-.facts img {
-  width: 80px;
+.history img {
+  width: 10%;
 }
 
 .message {
