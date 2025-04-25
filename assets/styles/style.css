@@ -65,8 +65,8 @@ table {
   --secondary-color: white;
   --backround-color: #0082b5;
   --text-color: white;
-  --line-height-base: 1.2rem;
-  --line-height-paragraph: 1.5rem;
+  --line-height-base: 1.2;
+  --line-height-paragraph: 1.6;
 }
 
 body {
@@ -94,7 +94,8 @@ h2 {
   margin-block-end: 1rem;
 }
 
-p, li {
+p,
+li {
   font-size: 1.1rem;
   font-weight: 400;
   line-height: var(--line-height-paragraph);
@@ -142,17 +143,19 @@ img {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 200%;
   height: 30%;
   background: url(/assets/elements/wave.svg) repeat-x;
+  background-size: contain;
   animation: wave-move 15s linear infinite;
 }
 
 @keyframes wave-move {
   100% {
-    background-position-x: -50%;
+    background-position-x: 50%;
   }
 }
+
 .intro-facts {
   text-align: center;
   display: flex;
@@ -160,10 +163,21 @@ img {
   align-items: center;
 }
 .intro-facts__text {
-  max-width: 80ch;
-}
 
-.facts {
+
+
+
+.facts__intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 5rem;
+}
+.facts__text {
+  max-width: 70ch;
+}
+.facts__container {
   display: grid;
   gap: 10rem;
 }
@@ -175,19 +189,17 @@ img {
 .facts__item--reverse {
   text-align: right;
 }
-.facts__text {
-  width: 60ch;
-}
 .facts img {
   width: 80px;
 }
 
 .message {
+  border-top: 0.1rem solid #09557E;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: 2rem;
+  padding-block-start: 4rem;
 }
 .message__text {
   max-width: 75ch;
@@ -212,7 +224,7 @@ img {
   padding: 2.5rem;
   text-align: center;
   color: #8ba7b5;
-  background-color: #09557E;
+  background-color: #09557e;
 }
 .footer__text {
   font-size: 0.8rem;
@@ -265,4 +277,15 @@ img {
 }
 .scrollContent__paragraph {
   font-size: clamp(1rem, 2vw, 1.2rem);
+=======
+.horizontal-scroll .horizontal > * {
+  text-align: center;
+}
+.horizontal-scroll .horizontal:nth-child(1) {
+  margin-inline-start: 2rem;
+}
+.horizontal-scroll .horizontal__img {
+  box-sizing: border-box;
+  display: block;
+  width: 15vw;
 }/*# sourceMappingURL=style.css.map */
