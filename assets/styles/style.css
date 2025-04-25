@@ -125,8 +125,24 @@ img {
 }
 .section-top__icon {
   max-width: 6%;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
+.splash {
+  animation: splash-effect 1s forwards;
+}
+
+@keyframes splash-effect {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(5);
+    opacity: 0;
+  }
+}
 .section-wave {
   position: relative;
   display: flex;
@@ -135,6 +151,7 @@ img {
   align-items: center;
   text-align: center;
   height: 100vh;
+  width: 100%;
 }
 .section-wave__text {
   font-size: 3em;
@@ -144,28 +161,45 @@ img {
   bottom: 0;
   left: 0;
   width: 200%;
-  height: 30%;
+  height: 20%;
+  transform: translateX(0);
   background: url(/assets/elements/wave.svg) repeat-x;
-  background-size: contain;
-  animation: wave-move 15s linear infinite;
 }
 
-@keyframes wave-move {
-  100% {
-    background-position-x: 50%;
-  }
-}
-
-.intro-facts {
-  text-align: center;
+.horizontal-scroll {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  gap: 2rem;
+  background-color: #09557e;
   align-items: center;
+  overflow-x: hidden;
 }
-.intro-facts__text {
-
-
-
+.horizontal-scroll .horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 70vh;
+  width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1.5px solid black;
+  border-radius: 20px;
+}
+.horizontal-scroll .horizontal > * {
+  text-align: center;
+}
+.horizontal-scroll .horizontal:nth-child(1) {
+  margin-inline-start: 2rem;
+}
+.horizontal-scroll .horizontal__img {
+  box-sizing: border-box;
+  display: block;
+  width: 15vw;
+}
 
 .facts__intro {
   text-align: center;
@@ -175,7 +209,7 @@ img {
   padding-block: 5rem;
 }
 .facts__text {
-  max-width: 70ch;
+  max-width: 80ch;
 }
 .facts__container {
   display: grid;
@@ -194,7 +228,7 @@ img {
 }
 
 .message {
-  border-top: 0.1rem solid #09557E;
+  border-top: 0.1rem solid #09557e;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -228,64 +262,4 @@ img {
 }
 .footer__text {
   font-size: 0.8rem;
-}
-
-.horizontal {
-  display: flex;
-  height: 100vh;
-  gap: 2rem;
-  background-color: #09557e;
-  align-items: center;
-  overflow-x: hidden;
-}
-.horizontal__container {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  height: 70vh;
-  width: 30%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: 1.5px solid black;
-  border-radius: 20px;
-}
-.horizontal__container:nth-child(1) {
-  margin-inline-start: 2rem;
-}
-
-.scrollContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-.scrollContent > * {
-  text-align: center;
-}
-.scrollContent__img, .scrollContent__title {
-  margin-block-end: 0.5rem;
-}
-.scrollContent__img {
-  box-sizing: border-box;
-  display: block;
-  width: 60%;
-}
-.scrollContent__title {
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-}
-.scrollContent__paragraph {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-=======
-.horizontal-scroll .horizontal > * {
-  text-align: center;
-}
-.horizontal-scroll .horizontal:nth-child(1) {
-  margin-inline-start: 2rem;
-}
-.horizontal-scroll .horizontal__img {
-  box-sizing: border-box;
-  display: block;
-  width: 15vw;
 }/*# sourceMappingURL=style.css.map */
