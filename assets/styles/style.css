@@ -125,8 +125,24 @@ img {
 }
 .section-top__icon {
   max-width: 6%;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
+.splash {
+  animation: splash-effect 1s forwards;
+}
+
+@keyframes splash-effect {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(5);
+    opacity: 0;
+  }
+}
 .section-wave {
   position: relative;
   display: flex;
@@ -135,6 +151,7 @@ img {
   align-items: center;
   text-align: center;
   height: 100vh;
+  width: 100%;
 }
 .section-wave__text {
   font-size: 3em;
@@ -144,16 +161,9 @@ img {
   bottom: 0;
   left: 0;
   width: 200%;
-  height: 30%;
+  height: 20%;
+  transform: translateX(0);
   background: url(/assets/elements/wave.svg) repeat-x;
-  background-size: contain;
-  animation: wave-move 15s linear infinite;
-}
-
-@keyframes wave-move {
-  100% {
-    background-position-x: 50%;
-  }
 }
 .facts__intro {
   text-align: center;
@@ -182,7 +192,7 @@ img {
 }
 
 .message {
-  border-top: 0.1rem solid #09557E;
+  border-top: 0.1rem solid #09557e;
   text-align: center;
   display: flex;
   flex-direction: column;
