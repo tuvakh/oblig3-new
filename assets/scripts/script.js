@@ -1,27 +1,23 @@
 // Script for waterdrop
 const waterIcon = document.querySelector('.section-top__icon');
-
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) { 
-        waterIcon.classList.add('splash');
-    } else {
-        waterIcon.classList.remove('splash');
-    }
+  waterIcon.classList.toggle('splash', window.scrollY > 500);
 });
 
-// Script for the wave animation
+// Script for wave-animation
 const waveIcon = document.querySelector('.section-wave__icon');
-
 function handleWaveScroll() {
-    const scrollPosition = window.pageYOffset;
-    const scrollSpeed = scrollPosition * 0.7;
-    waveIcon.style.transform = `translateX(-${scrollSpeed}px)`;
+  const scrollPosition = window.pageYOffset;
+  const scrollSpeed = scrollPosition * 0.7;
+  waveIcon.style.backgroundPosition = `-${scrollSpeed}px 0`;
 }
 window.addEventListener('scroll', handleWaveScroll);
 
 
 
-
+// Script for horizontal-scroll
+gsap.registerPlugin(ScrollTrigger);
+const contents = gsap.utils.toArray(".horizontal .horizontal__container");
 // Horizontal scroll section
 gsap.registerPlugin(ScrollTrigger);
 
