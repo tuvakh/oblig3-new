@@ -167,8 +167,36 @@ img {
   background-size: auto 100%;
   background: url(/assets/elements/wave.svg) repeat-x;
 }
+
 .facts__intro {
   text-align: center;
+}
+.facts__img {
+  width: 30%;
+}
+.facts__title {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+.facts__paragraph {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+@media (max-width: 799px) {
+  .horizontal {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 0;
+  }
+  .horizontal__container {
+    width: 80%;
+    height: auto;
+  }
+  .horizontal__container:nth-child(1) {
+    margin-inline-start: 0;
+  }
+}
+.history__part {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
