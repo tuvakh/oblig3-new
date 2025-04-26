@@ -1,6 +1,3 @@
-
-/*gsap.registerPlugin(ScrollTrigger);
-=======
 // Script for waterdrop
 const waterIcon = document.querySelector('.section-top__icon');
 
@@ -23,7 +20,7 @@ function handleWaveScroll() {
 window.addEventListener('scroll', handleWaveScroll);
 
 
-// Script for horizontal-scroll
+/* Script for horizontal-scroll
 gsap.registerPlugin(ScrollTrigger);
 const contents = gsap.utils.toArray(".horizontal .horizontal__container");
 
