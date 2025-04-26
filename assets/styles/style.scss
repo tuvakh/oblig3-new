@@ -32,10 +32,6 @@ body {
     line-height: var(--line-height-base);
 }
 
-main {
-    padding: 3rem;
-}
-
 h1,
 h2 {
     font-family: "bebasneue";
@@ -129,6 +125,24 @@ img {
 .history {
     &__part {
         height: 100vh;
+
+        &--sunrise {
+            height: 200vh;
+            background: linear-gradient(180deg,
+                        rgba(0, 0, 0, 1) 0%, 
+                        rgba(84, 57, 99, 1) 26%, 
+                        rgba(204, 83, 107, 1) 55%, 
+                        rgba(253, 146, 112, 1) 91%, 
+                        rgba(0, 0, 0, 1) 91%);
+        }
+
+        &--drought {
+            background:
+              linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(252, 228, 150, 0.1) 65%),
+              url('../elements/dry-earth.svg');
+            background-position: top, bottom; /* gradient from top, image at the bottom */
+            background-repeat: no-repeat;
+        }
     }
 
     img {
@@ -143,6 +157,7 @@ img {
     flex-direction: column;
     align-items: center;
     padding-block-start: 4rem;
+    padding: 3rem;
 
     &__text {
         max-width: 75ch;
