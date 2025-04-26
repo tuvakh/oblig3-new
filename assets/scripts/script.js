@@ -29,7 +29,7 @@ function setupHorizontalScroll() {
   if (window.innerWidth >= 1000) {
     const contents = gsap.utils.toArray(".horizontal .horizontal__container");
     gsap.to(contents, {
-      xPercent: -80 * (contents.length - 1),
+      xPercent: -90 * (contents.length - 1),
       scrollTrigger: {
         trigger: ".horizontal",
         pin: true,
