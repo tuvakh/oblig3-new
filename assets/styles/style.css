@@ -76,10 +76,6 @@ body {
   line-height: var(--line-height-base);
 }
 
-main {
-  padding: 3rem;
-}
-
 h1,
 h2 {
   font-family: "bebasneue";
@@ -236,6 +232,7 @@ img {
   background-color: #09557e;
   align-items: center;
   overflow-x: hidden;
+  text-align: center;
 }
 .horizontal__container {
   flex-shrink: 0;
@@ -251,14 +248,12 @@ img {
 }
 
 .scrollContent {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-block: 6rem;
   height: 100%;
-  margin-block-start: 2rem;
-}
-.scrollContent > * {
-  text-align: center;
 }
 .scrollContent__img {
   width: 30%;
@@ -270,7 +265,7 @@ img {
   font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
   .horizontal {
     flex-direction: column;
     height: auto;
