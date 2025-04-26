@@ -13,8 +13,6 @@ function handleWaveScroll() {
 }
 window.addEventListener('scroll', handleWaveScroll);
 
-
-
 // Script for horizontal-scroll
 gsap.registerPlugin(ScrollTrigger);
 const contents = gsap.utils.toArray(".horizontal .horizontal__container");

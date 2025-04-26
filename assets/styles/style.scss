@@ -32,8 +32,6 @@ body {
     line-height: var(--line-height-base);
 }
 
-
-
 h1,
 h2 {
     font-family: "bebasneue";
@@ -61,7 +59,7 @@ img {
     height: auto;
 }
 
-// Section 1
+// Section 1 - Intro + Waterdrop
 .section-top {
     display: flex;
     flex-direction: column;
@@ -100,6 +98,7 @@ img {
     }
 }
 
+// Section 2 -  Wave effect
 .section-wave {
     position: relative;
     display: flex;
@@ -112,6 +111,7 @@ img {
     overflow: hidden;
     &__text {
         font-size: 3em;
+        max-width: 70%;
     }
     &__icon {
         position: absolute;
@@ -124,6 +124,7 @@ img {
     }
 }
 
+// Horizontal-Scroll
 .horizontal {
     display: flex;
     height: 100vh;
@@ -254,58 +255,3 @@ img {
         font-size: 0.8rem;
     }
 }
-
-.horizontal{
-    display: flex;
-    height: 100vh;
-    gap: 2rem;
-    background-color: #09557e;
-    align-items: center;
-    overflow-x: hidden;
-    text-align: center;
-    &__container{
-        flex-shrink: 0;
-        padding: 1rem;
-        height: 75%;
-        width: 30%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        border: 1.5px solid #fff;
-        border-radius: 20px;
-        &:nth-child(1){
-            margin-inline-start: 2rem;
-        }
-    }
-}
-
-.scrollContent{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-block: 6rem;
-    height: 100%;
-    &__img{
-        width: 30%;
-    }
-    &__title{
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
-    }
-    &__paragraph{
-        font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-}
-
-@media (max-width: 999px) {
-    .horizontal {
-      flex-direction: column ;
-      height: auto ;
-      padding: 2rem 0;
-    }
-    .horizontal__container {
-      width: 80% ;
-      height: auto;
-      &:nth-child(1){
-        margin-inline-start: 0;
-    }
-    }
-  }
