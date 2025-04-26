@@ -62,6 +62,7 @@ img {
 .line-break {
     display: block;
 }
+
 // Section 1 - Intro + Waterdrop
 .section-top {
     display: flex;
@@ -156,37 +157,6 @@ img {
     height: 100%;
     margin-block-start: 2rem;
     & > * {
-        text-align: center;
-    }
-    &__img {
-        width: 30%;
-    }
-    &__title {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
-    }
-    &__paragraph {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-}
-
-@media (max-width: 799px) {
-    .horizontal {
-        flex-direction: column;
-        height: auto;
-        padding: 2rem 0;
-    }
-    .horizontal__container {
-        width: 80%;
-        height: auto;
-        &:nth-child(1) {
-            margin-inline-start: 0;
-        }
-    }
-}
-
-// Facts about goal 6
-.facts {
-    &__intro {
         text-align: center;
     }
     &__img {
