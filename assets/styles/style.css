@@ -103,6 +103,10 @@ img {
   height: auto;
 }
 
+.line-break {
+  display: block;
+}
+
 .section-top {
   display: flex;
   flex-direction: column;
@@ -164,18 +168,100 @@ img {
 
 .history__part {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
-.history__part--sunrise {
-  height: 200vh;
-  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(84, 57, 99) 26%, rgb(204, 83, 107) 55%, rgb(253, 146, 112) 91%, rgb(0, 0, 0) 91%);
+.history__part--unset {
+  justify-content: unset;
 }
 .history__part--drought {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(252, 228, 150, 0.1) 65%), url("../elements/dry-earth.svg");
-  background-position: top, bottom; /* gradient from top, image at the bottom */
+  background-size: 100%;
+  background-position: center top, center bottom; /* gradient from top, image at the bottom */
   background-repeat: no-repeat;
 }
-.history img {
+.history__part--hope {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(241, 138, 35, 0.5) 65%, rgba(103, 99, 16, 0.5) 90%);
+  background-size: 100%;
+  background-position: center top, center bottom; /* gradient from top, image at the bottom */
+  background-repeat: no-repeat;
+}
+.history__part--red {
+  background: linear-gradient(180deg, rgba(103, 99, 16, 0.5) 0%, rgba(238, 50, 50, 0.5) 30%, rgba(0, 0, 0, 0.1) 80%);
+  background-size: 100%;
+  background-position: center top, center bottom; /* gradient from top, image at the bottom */
+  background-repeat: no-repeat;
+}
+.history__important {
+  font-family: bebasneue;
+  font-size: 3rem;
+}
+.history__important--name {
+  font-size: 4.5rem;
+}
+.history__sunrise {
+  height: 200vh;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(84, 57, 99) 26%, rgb(204, 83, 107) 55%, rgb(253, 146, 112) 94%, rgb(0, 0, 0) 94%);
+}
+.history__title {
+  font-size: 3rem;
+}
+.history__text {
+  max-width: 58ch;
+}
+.history__text--shorter {
+  max-width: 48ch;
+}
+.history__text--top {
+  margin-block-start: 12rem;
+}
+.history__text--left {
+  margin-inline-start: 10rem;
+  align-self: flex-start;
+}
+.history__text--right {
+  align-self: flex-end;
+  margin-inline-end: 10rem;
+  width: 30ch;
+  position: absolute;
+  bottom: 15%;
+}
+.history__boiling-img {
+  width: 20%;
+  margin-block: 3rem;
+}
+.history__earth-container {
+  width: 100%;
+  height: 30%; /* Half the height of the globe */
+  overflow: hidden;
+  margin-block: 3rem;
+}
+.history__river {
+  stroke: var(--backround-color);
+  stroke-width: 2.5rem;
+  fill: transparent;
+  width: 100%;
+  height: 100%;
+}
+.history__img {
   width: 10%;
+}
+.history__img--character {
+  display: flex;
+  position: absolute;
+  bottom: 12%;
+  width: 12%;
+}
+.history__img--character-small {
+  width: 8%;
+  margin-block-start: 1.5rem;
+}
+.history__img--earth {
+  width: 30%;
 }
 
 .message {
