@@ -1,8 +1,22 @@
 // Script for waterdrop
 const waterIcon = document.querySelector('.section-top__icon');
 window.addEventListener('scroll', () => {
-  waterIcon.classList.toggle('splash', window.scrollY > 500);
+  waterIcon.classList.toggle('splash', window.scrollY > 100);
 });
+
+// Script for section 2 -  Wave text
+const waveSectionText = document.querySelector(".section-wave__text");
+const originalFontSize = window.getComputedStyle(waveSectionText).fontSize;
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      waveSectionText.style.fontSize = entry.isIntersecting ? originalFontSize : "0";
+    });
+  },
+  { rootMargin: "-30% 0%" }
+);
+observer.observe(document.querySelector(".section-wave"));
+
 
 // Script for wave-animation
 const waveIcon = document.querySelector('.section-wave__icon');
