@@ -139,6 +139,7 @@ img {
 
 // Horizontal-Scroll
 .horizontal {
+    position: relative;
     display: flex;
     height: 100vh;
     gap: 2rem;
@@ -153,18 +154,18 @@ img {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border: 1.5px solid #fff;
         border-radius: 20px;
+        
         &:nth-child(1) {
             margin-inline-start: 2rem;
         }
     }
 }
-
 .scrollContent {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
-    margin-block-start: 2rem;
+    margin-block-start: 80px;
     & > * {
         text-align: center;
     }
@@ -186,7 +187,7 @@ img {
     .horizontal {
         flex-direction: column;
         height: auto;
-        padding: 2rem 0;
+        padding-block: 2rem;
     }
     .horizontal__container {
         width: 80%;
@@ -194,6 +195,9 @@ img {
         &:nth-child(1) {
             margin-inline-start: 0;
         }
+    }
+    .scrollContent{
+        margin-block-start: 30px;
     }
 }
 

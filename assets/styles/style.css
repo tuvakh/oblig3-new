@@ -176,6 +176,7 @@ img {
 }
 
 .horizontal {
+  position: relative;
   display: flex;
   height: 100vh;
   gap: 2rem;
@@ -201,7 +202,7 @@ img {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  margin-block-start: 2rem;
+  margin-block-start: 80px;
 }
 .scrollContent > * {
   text-align: center;
@@ -223,7 +224,7 @@ img {
   .horizontal {
     flex-direction: column;
     height: auto;
-    padding: 2rem 0;
+    padding-block: 2rem;
   }
   .horizontal__container {
     width: 80%;
@@ -231,6 +232,9 @@ img {
   }
   .horizontal__container:nth-child(1) {
     margin-inline-start: 0;
+  }
+  .scrollContent {
+    margin-block-start: 30px;
   }
 }
 .history__part {
