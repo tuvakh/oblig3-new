@@ -19,15 +19,16 @@
     --secondary-color: white;
     --backround-color: #0082b5;
     --text-color: white;
-    //Font
-    --font-size-h1: 3.5rem;
-    --font-size-h2: 2rem;
-    --font-size-p: 1.1rem;
     //Styles
-    --line-height-base: 1.2;
+    --line-height-goal-p: 1.1;
     --line-height-paragraph: 1.6;
-    // Clamp
-
+    // Font Sizes - Clamp
+    /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --step-0: clamp(1.125rem, 1.0135rem + 0.4575vw, 1.5625rem);
+    --step-1: clamp(1.4996rem, 1.384rem + 0.4742vw, 1.9531rem);
+    --step-2: clamp(1.999rem, 1.8862rem + 0.4626vw, 2.4414rem);
+    --step-3: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
+    --step-4: clamp(3.552rem, 3.485rem + 0.2747vw, 3.8147rem);
 }
 
 //Globals
@@ -35,7 +36,6 @@ body {
     font-family: "open-sans", sans-serif;
     background-color: var(--primary-color);
     color: var(--text-color);
-    line-height: var(--line-height-base);
 }
 
 h1,
@@ -44,17 +44,17 @@ h2 {
 }
 
 h1 {
-    font-size: var(--font-size-h1);
+    font-size: var(--step-4);
 }
 
 h2 {
-    font-size: var(--font-size-h2);
+    font-size: var(--step-2);
     margin-block-end: 1rem;
 }
 
 p,
 li {
-    font-size: var(--font-size-p);
+    font-size: var(--step-0);
     font-weight: 400;
     line-height: var(--line-height-paragraph);
 }
@@ -77,30 +77,34 @@ img {
     align-items: center;
     text-align: center;
     height: 100vh;
-    gap: 2%;
+    padding-inline: 3rem;
+    gap: 1%;
 
     &__text {
-        font-size: var(--font-size-h2);
-        max-width: 50%;
+        font-size: var(--step-1);
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: var(--line-height-goal-p);
+        max-width: 40ch;
     }
     &__icon {
         transition: transform 0.5s ease-in-out;
-        opacity: 0;
-        max-width: 6%;
+        opacity: 100%;
+        max-width: 10%;
     }
 }
 
 .splash {
-    animation: splash-effect 1s forwards;
+    animation: splash-effect 5s forwards;
 }
 
 @keyframes splash-effect {
     0% {
         transform: translateY(0) scale(1);
-        opacity: 1;
+        opacity: 20;
     }
     100% {
-        transform: translateY(100vh) scale(5);
+        transform: translateY(150vh) scale(2);
         opacity: 0;
     }
 }
@@ -116,10 +120,9 @@ img {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    
+
     &__text {
-        font-size: 3rem;
-        max-width: 70%;
+        max-width: 80%;
     }
     &__icon {
         position: absolute;
@@ -151,7 +154,6 @@ img {
         &:nth-child(1) {
             margin-inline-start: 2rem;
         }
-
     }
 }
 
@@ -164,21 +166,17 @@ img {
     & > * {
         text-align: center;
     }
-    &__container{
+    &__container {
         position: relative;
-    &--img{
-        display: block;
-        width: 150px;
-    }
-    &--title{
-        position: absolute;
-        top: 45%;
-        left: 40%;
-        font-size: clamp(1.7rem, 2.5vw, 2rem);
-    }
-    }
-    &__paragraph {
-        font-size: clamp(1rem, 2vw, 1.2rem);
+        &--img {
+            display: block;
+            width: 150px;
+        }
+        &--title {
+            position: absolute;
+            top: 45%;
+            left: 40%;
+        }
     }
 }
 
@@ -212,27 +210,46 @@ img {
             justify-content: unset;
         }
         &--drought {
-            background:
-              linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(252, 228, 150, 0.1) 65%),
-              url('../elements/dry-earth.svg');
+            background: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.7) 0%,
+                    rgba(50, 185, 238, 0.5) 30%,
+                    rgba(252, 228, 150, 0.1) 65%
+                ),
+                url("../elements/dry-earth.svg");
             background-size: 100%;
-            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-position:
+                center top,
+                center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
         }
 
         &--hope {
-            background:
-              linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(241, 138, 35, 0.5) 65%, rgba(103, 99, 16, 0.5) 90%);
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(50, 185, 238, 0.5) 30%,
+                rgba(241, 138, 35, 0.5) 65%,
+                rgba(103, 99, 16, 0.5) 90%
+            );
             background-size: 100%;
-            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-position:
+                center top,
+                center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
         }
 
         &--red {
-            background:
-              linear-gradient(180deg, rgba(103, 99, 16, 0.5) 0%, rgba(238, 50, 50, 0.5) 30%, rgba(0, 0, 0, 0.1) 80%);
+            background: linear-gradient(
+                180deg,
+                rgba(103, 99, 16, 0.5) 0%,
+                rgba(238, 50, 50, 0.5) 30%,
+                rgba(0, 0, 0, 0.1) 80%
+            );
             background-size: 100%;
-            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-position:
+                center top,
+                center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
         }
     }
@@ -240,7 +257,7 @@ img {
     &__important {
         font-family: bebasneue;
         font-size: 3rem;
-        
+
         &--name {
             font-size: 4.5rem;
         }
@@ -248,14 +265,15 @@ img {
 
     &__sunrise {
         height: 200vh;
-        background: linear-gradient(180deg,
-                    rgba(0, 0, 0, 1) 0%, 
-                    rgba(84, 57, 99, 1) 26%, 
-                    rgba(204, 83, 107, 1) 55%, 
-                    rgba(253, 146, 112, 1) 94%, 
-                    rgba(0, 0, 0, 1) 94%);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(84, 57, 99, 1) 26%,
+            rgba(204, 83, 107, 1) 55%,
+            rgba(253, 146, 112, 1) 94%,
+            rgba(0, 0, 0, 1) 94%
+        );
     }
-
 
     &__title {
         font-size: 3rem;
@@ -298,8 +316,8 @@ img {
     }
 
     &__river {
-        stroke: var(--backround-color); 
-        stroke-width: 2.5rem; 
+        stroke: var(--backround-color);
+        stroke-width: 2.5rem;
         fill: transparent;
         width: 100%;
         height: 100%;

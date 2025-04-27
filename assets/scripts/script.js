@@ -1,7 +1,7 @@
 // Script for waterdrop
 const waterIcon = document.querySelector('.section-top__icon');
 window.addEventListener('scroll', () => {
-  waterIcon.classList.toggle('splash', window.scrollY > 500);
+  waterIcon.classList.toggle('splash', window.scrollY > 100);
 });
 
 // Script for wave-animation
