@@ -216,8 +216,9 @@ img {
 }
 .scrollContent__container--title {
   position: absolute;
-  top: 45%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 999px) {
