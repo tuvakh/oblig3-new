@@ -132,7 +132,7 @@ img {
 .section-top__icon {
   transition: transform 0.5s ease-in-out;
   opacity: 100%;
-  max-width: 10%;
+  width: 8vh;
 }
 
 .splash {
@@ -161,7 +161,7 @@ img {
   overflow: hidden;
 }
 .section-wave__text {
-  max-width: 80%;
+  max-width: 45ch;
 }
 .section-wave__icon {
   position: absolute;
