@@ -17,17 +17,15 @@ window.addEventListener('scroll', handleWaveScroll);
 gsap.registerPlugin(ScrollTrigger);
 const contents = gsap.utils.toArray(".horizontal .horizontal__container");
 // Horizontal scroll section
-gsap.registerPlugin(ScrollTrigger);
 
-function setupHorizontalScroll() {
+function horizontalScroll() {
   // Clean up any previous ScrollTriggers and transforms
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   gsap.set(".horizontal .horizontal__container", { clearProps: "all" });
-
   if (window.innerWidth >= 1000) {
     const contents = gsap.utils.toArray(".horizontal .horizontal__container");
     gsap.to(contents, {
-      xPercent: -80 * (contents.length - 1),
+      xPercent: -90 * (contents.length - 1),
       scrollTrigger: {
         trigger: ".horizontal",
         pin: true,
@@ -45,7 +43,7 @@ function setupHorizontalScroll() {
 }
 
 // Run once on load
-setupHorizontalScroll();
+horizontalScroll();
 
 // Re-run on resize to adapt to screen changes
-window.addEventListener("resize", setupHorizontalScroll);
+window.addEventListener("resize", horizontalScroll);
