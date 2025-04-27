@@ -28,7 +28,6 @@ function handleWaveScroll() {
 window.addEventListener('scroll', handleWaveScroll);
 
 
-
 // Script for horizontal-scroll
 gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
@@ -36,7 +35,7 @@ function horizontalScroll() {
   gsap.set(".horizontal", { clearProps: "all" }); // 
   if (window.innerWidth >= 1000) { // This gsap will only work if the screensize is 1000px or more.
     const content = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
-    let tl = gsap.to(content, {
+    gsap.to(content, {
       xPercent: -79 * (content.length - 1), // Scrolls content to the left. 
       scrollTrigger: {
         trigger: ".horizontal", // When content hits .horizontal section, it triggers the scrolling
