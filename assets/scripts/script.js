@@ -40,8 +40,7 @@ function horizontalScroll() {
       scrollTrigger: {
         trigger: ".horizontal", // When content hits .horizontal section, it triggers the scrolling
         pin: true, // Content stays stuck on screen
-        scrub: 1,
-        delay: 2, // Make the scrolling to feel more smooth!
+        scrub: 1,// Make the scrolling to feel more smooth!
         end: "+=4000" // So the scrolling isn't so snappy!
       },
       ease: "power1.inOut",
