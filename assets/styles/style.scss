@@ -201,10 +201,22 @@ img {
         margin-block-start: 30px;
     }
 }
+.hidden-font {
+    font-size: 0;
+}
 
-// Facts about goal 6
-.history {
+@keyframes mymove {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(180deg);}
+  }
+// Facts about goal 6 
+.history { 
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  
     &__part {
+        scroll-snap-align: start;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -264,7 +276,9 @@ img {
     &__important {
         font-family: bebasneue;
         font-size: 3rem;
-
+        max-width: 50ch;
+        transition: all 5s;
+    
         &--name {
             font-size: 4.5rem;
         }
@@ -287,6 +301,7 @@ img {
     }
     &__text {
         max-width: 58ch;
+        transition: all 5s;
 
         &--shorter {
             max-width: 48ch;
@@ -347,6 +362,8 @@ img {
 
         &--earth {
             width: 30%;
+            animation: mymove 5s 1;
+            animation-fill-mode: forwards;
         }
     }
 }

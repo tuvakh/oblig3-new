@@ -238,7 +238,25 @@ img {
     margin-block-start: 30px;
   }
 }
+.hidden-font {
+  font-size: 0;
+}
+
+@keyframes mymove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.history {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
 .history__part {
+  scroll-snap-align: start;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -271,6 +289,8 @@ img {
 .history__important {
   font-family: bebasneue;
   font-size: 3rem;
+  max-width: 50ch;
+  transition: all 5s;
 }
 .history__important--name {
   font-size: 4.5rem;
@@ -284,6 +304,7 @@ img {
 }
 .history__text {
   max-width: 58ch;
+  transition: all 5s;
 }
 .history__text--shorter {
   max-width: 48ch;
@@ -334,6 +355,8 @@ img {
 }
 .history__img--earth {
   width: 30%;
+  animation: mymove 5s 1;
+  animation-fill-mode: forwards;
 }
 
 .message {
