@@ -1,12 +1,3 @@
-//gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.create({
-  trigger: ".history-wrapper",
-  start: "top top",
-  end: () => "+=" + document.querySelector(".history").offsetHeight,
-  pin: true,
-  scrub: true,
-});
-
 const sectionEls = document.querySelectorAll(".hidden-font");
 
 // Options for the IntersectionObserver
@@ -28,9 +19,9 @@ function intersectionCb(entries) {
 }
 
 // Create the IntersectionObserver instance
-const observer = new IntersectionObserver(intersectionCb, options);
+const observe = new IntersectionObserver(intersectionCb, options);
 
 // Observe each target element
 sectionEls.forEach(el => {
-    observer.observe(el);
+    observe.observe(el);
 });

@@ -56,3 +56,14 @@ horizontalScroll(); // Calls when the site is loaded
 
 window.addEventListener("resize", horizontalScroll); // If the window gets resized, run the hroizontalScrool function again.
 // This is for if you are first on desktop and moves to phone, the function needs to be called again, or else the scrolling will be on phone size. 
+
+//gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.create({
+    trigger: ".history-wrapper",
+    start: "top top",
+    end: () => "+=" + document.querySelector(".history").offsetHeight,
+    pin: true,
+    scrub: true,
+  });
+
+  
