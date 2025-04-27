@@ -32,8 +32,6 @@ body {
     line-height: var(--line-height-base);
 }
 
-
-
 h1,
 h2 {
     font-family: "bebasneue";
@@ -61,7 +59,11 @@ img {
     height: auto;
 }
 
-// Section 1
+.line-break {
+    display: block;
+}
+
+// Section 1 - Intro + Waterdrop
 .section-top {
     display: flex;
     flex-direction: column;
@@ -100,6 +102,7 @@ img {
     }
 }
 
+// Section 2 -  Wave effect
 .section-wave {
     position: relative;
     display: flex;
@@ -112,6 +115,7 @@ img {
     overflow: hidden;
     &__text {
         font-size: 3em;
+        max-width: 70%;
     }
     &__icon {
         position: absolute;
@@ -124,6 +128,7 @@ img {
     }
 }
 
+// Horizontal-Scroll
 .horizontal {
     display: flex;
     height: 100vh;
@@ -189,36 +194,131 @@ img {
 }
 
 // Facts about goal 6
-.facts {
-    &__intro {
-        text-align: center;
+.history {
+    &__part {
+        height: 100vh;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding-block: 5rem;
+        text-align: center;
+        position: relative;
+
+        &--unset {
+            justify-content: unset;
+        }
+        &--drought {
+            background:
+              linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(252, 228, 150, 0.1) 65%),
+              url('../elements/dry-earth.svg');
+            background-size: 100%;
+            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-repeat: no-repeat;
+        }
+
+        &--hope {
+            background:
+              linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(241, 138, 35, 0.5) 65%, rgba(103, 99, 16, 0.5) 90%);
+            background-size: 100%;
+            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-repeat: no-repeat;
+        }
+
+        &--red {
+            background:
+              linear-gradient(180deg, rgba(103, 99, 16, 0.5) 0%, rgba(238, 50, 50, 0.5) 30%, rgba(0, 0, 0, 0.1) 80%);
+            background-size: 100%;
+            background-position: center top, center bottom; /* gradient from top, image at the bottom */
+            background-repeat: no-repeat;
+        }
     }
 
+    &__important {
+        font-family: bebasneue;
+        font-size: 3rem;
+        
+        &--name {
+            font-size: 4.5rem;
+        }
+    }
+
+    &__sunrise {
+        height: 200vh;
+        background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 1) 0%, 
+                    rgba(84, 57, 99, 1) 26%, 
+                    rgba(204, 83, 107, 1) 55%, 
+                    rgba(253, 146, 112, 1) 94%, 
+                    rgba(0, 0, 0, 1) 94%);
+    }
+
+
+    &__title {
+        font-size: 3rem;
+    }
     &__text {
-        max-width: 80ch;
+        max-width: 58ch;
+
+        &--shorter {
+            max-width: 48ch;
+        }
+
+        &--top {
+            margin-block-start: 12rem;
+        }
+
+        &--left {
+            margin-inline-start: 10rem;
+            align-self: flex-start;
+        }
+
+        &--right {
+            align-self: flex-end;
+            margin-inline-end: 10rem;
+            width: 30ch;
+            position: absolute;
+            bottom: 15%;
+        }
     }
 
-    &__container {
-        display: grid;
-        gap: 10rem;
+    &__boiling-img {
+        width: 20%;
+        margin-block: 3rem;
     }
 
-    &__item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &__earth-container {
+        width: 100%;
+        height: 30%; /* Half the height of the globe */
+        overflow: hidden;
+        margin-block: 3rem;
     }
 
-    &__item--reverse {
-        text-align: right;
+    &__river {
+        stroke: var(--backround-color); 
+        stroke-width: 2.5rem; 
+        fill: transparent;
+        width: 100%;
+        height: 100%;
     }
 
-    img {
-        width: 80px;
+    &__img {
+        width: 10%;
+
+        &--character {
+            display: flex;
+            position: absolute;
+            bottom: 12%;
+            width: 12%;
+        }
+
+        &--character-small {
+            width: 8%;
+            margin-block-start: 1.5rem;
+        }
+
+        &--earth {
+            width: 30%;
+        }
     }
 }
 
@@ -229,6 +329,7 @@ img {
     flex-direction: column;
     align-items: center;
     padding-block-start: 4rem;
+    padding: 3rem;
 
     &__text {
         max-width: 75ch;
@@ -262,58 +363,3 @@ img {
         font-size: 0.8rem;
     }
 }
-
-.horizontal{
-    display: flex;
-    height: 100vh;
-    gap: 2rem;
-    background-color: #09557e;
-    align-items: center;
-    overflow-x: hidden;
-    text-align: center;
-    &__container{
-        flex-shrink: 0;
-        padding: 1rem;
-        height: 75%;
-        width: 30%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        border: 1.5px solid #fff;
-        border-radius: 20px;
-        &:nth-child(1){
-            margin-inline-start: 2rem;
-        }
-    }
-}
-
-.scrollContent{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-block: 6rem;
-    height: 100%;
-    &__img{
-        width: 30%;
-    }
-    &__title{
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
-    }
-    &__paragraph{
-        font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-}
-
-@media (max-width: 999px) {
-    .horizontal {
-      flex-direction: column ;
-      height: auto ;
-      padding: 2rem 0;
-    }
-    .horizontal__container {
-      width: 80% ;
-      height: auto;
-      &:nth-child(1){
-        margin-inline-start: 0;
-    }
-    }
-  }
