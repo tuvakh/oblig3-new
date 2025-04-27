@@ -199,17 +199,24 @@ img {
 .scrollContent > * {
   text-align: center;
 }
-.scrollContent__img {
-  width: 30%;
+.scrollContent__container {
+  position: relative;
 }
-.scrollContent__title {
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
+.scrollContent__container--img {
+  display: block;
+  width: 150px;
+}
+.scrollContent__container--title {
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  font-size: clamp(1.7rem, 2.5vw, 2rem);
 }
 .scrollContent__paragraph {
   font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
   .horizontal {
     flex-direction: column;
     height: auto;

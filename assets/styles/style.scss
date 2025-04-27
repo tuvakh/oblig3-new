@@ -147,6 +147,7 @@ img {
         &:nth-child(1) {
             margin-inline-start: 2rem;
         }
+
     }
 }
 
@@ -159,18 +160,25 @@ img {
     & > * {
         text-align: center;
     }
-    &__img {
-        width: 30%;
+    &__container{
+        position: relative;
+    &--img{
+        display: block;
+        width: 150px;
     }
-    &__title {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
+    &--title{
+        position: absolute;
+        top: 45%;
+        left: 40%;
+        font-size: clamp(1.7rem, 2.5vw, 2rem);
+    }
     }
     &__paragraph {
         font-size: clamp(1rem, 2vw, 1.2rem);
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
     .horizontal {
         flex-direction: column;
         height: auto;
