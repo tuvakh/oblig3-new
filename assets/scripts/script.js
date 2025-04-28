@@ -59,13 +59,13 @@ window.addEventListener("resize", horizontalScroll);// If the window gets resize
 
 
 
-//gsap.registerPlugin(ScrollTrigger);
+// Makes the page stop inside each section of the history
 ScrollTrigger.create({
-  trigger: ".history-wrapper",
-  start: "top top",
-  end: () => "+=" + document.querySelector(".history").offsetHeight,
-  pin: true,
-  scrub: true,
+    trigger: ".history",
+    start: "top top",
+    end: () => "+=" + document.querySelector(".history").offsetHeight,
+    pin: true,
+    scrub: true,
 });
 
 
