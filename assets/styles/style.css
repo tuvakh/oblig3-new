@@ -142,7 +142,6 @@ img {
 @keyframes splash-effect {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 20;
   }
   100% {
     transform: translateY(150vh) scale(2);
@@ -306,9 +305,6 @@ img {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-}
-.history__text--written-firstline {
-  transition-delay: 0;
 }
 .history__text--written-secondline {
   transition-delay: 2.2s;
