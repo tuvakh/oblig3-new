@@ -205,10 +205,6 @@ img {
     font-size: 0;
 }
 
-@keyframes mymove {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(180deg);}
-  }
 // Facts about goal 6 
 .history { 
     height: 100vh;
@@ -248,8 +244,8 @@ img {
                 180deg,
                 rgba(0, 0, 0, 0.7) 0%,
                 rgba(50, 185, 238, 0.5) 30%,
-                rgba(241, 138, 35, 0.5) 65%,
-                rgba(103, 99, 16, 0.5) 90%
+                rgba(241, 138, 35, 0.5) 90%,
+                rgba(236, 195, 149, 0.5) 90%
             );
             background-size: 100%;
             background-position:
@@ -261,7 +257,7 @@ img {
         &--red {
             background: linear-gradient(
                 180deg,
-                rgba(103, 99, 16, 0.5) 0%,
+                rgba(236, 195, 149, 0.5) 0,
                 rgba(238, 50, 50, 0.5) 30%,
                 rgba(0, 0, 0, 0.1) 80%
             );
@@ -274,13 +270,13 @@ img {
     }
 
     &__important {
-        font-family: bebasneue;
-        font-size: 3rem;
-        max-width: 50ch;
-        transition: all 5s;
-    
+        font-family: 'open-sans';
+        font-weight: 900;
+        text-transform: uppercase;
+        transition: all 3s;
+        
         &--name {
-            font-size: 4.5rem;
+            margin-block-end: 1rem;
         }
     }
 
@@ -299,12 +295,32 @@ img {
     &__title {
         font-size: 3rem;
     }
+    
     &__text {
-        max-width: 58ch;
-        transition: all 5s;
+        width: 58ch;
+
+        &--growing {
+            transition: all 3s;
+        }
 
         &--shorter {
             max-width: 48ch;
+            transition: all 5s;
+        }
+
+        &--written-firstline, &--written-secondline {
+            transition: all 7s;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+        }
+
+        &--written-firstline {
+            transition-delay: 0;
+        }
+        
+        &--written-secondline {
+            transition-delay: 2.5s;
         }
 
         &--top {
@@ -312,22 +328,18 @@ img {
         }
 
         &--left {
-            margin-inline-start: 10rem;
             align-self: flex-start;
+            position: absolute;
+            top: 20%;
         }
 
         &--right {
             align-self: flex-end;
-            margin-inline-end: 10rem;
+            margin-inline-end: 7rem;
             width: 30ch;
             position: absolute;
             bottom: 15%;
         }
-    }
-
-    &__boiling-img {
-        width: 20%;
-        margin-block: 3rem;
     }
 
     &__earth-container {
@@ -343,28 +355,42 @@ img {
         fill: transparent;
         width: 100%;
         height: 100%;
+        transition: all 3s;
+        position: absolute;
+        left: 0;
+        top: 25%;
     }
 
-    &__img {
+    &__character-img {
         width: 10%;
+    }
 
-        &--character {
-            display: flex;
-            position: absolute;
-            bottom: 12%;
-            width: 12%;
-        }
+    &__bucketsCharacter-img {
+        display: flex;
+        position: absolute;
+        bottom: 12%;
+        width: 12%;
+    }
 
-        &--character-small {
-            width: 8%;
-            margin-block-start: 1.5rem;
-        }
+    &__smallCharacter-img {
+        width: 8%;
+        margin-block-start: 1.5rem;
+    }
 
-        &--earth {
-            width: 30%;
-            animation: mymove 5s 1;
-            animation-fill-mode: forwards;
-        }
+    &__boiling-img {
+        width: 20%;
+        margin-block: 3rem;
+    }
+
+    &__earth-img {
+        width: 30%;
+        transition: all 6s;
+    }
+
+    &__plant-img {
+        position: absolute;
+        bottom: 10%;
+        transition: all 3s;
     }
 }
 
@@ -373,9 +399,9 @@ img {
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-block-start: 4rem;
-    padding: 3rem;
+    height: 100vh;
 
     &__text {
         max-width: 75ch;
