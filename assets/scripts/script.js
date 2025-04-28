@@ -7,7 +7,7 @@ window.addEventListener('scroll', () => {
 // Script for section 2 -  Wave text
 const waveSectionText = document.querySelector(".section-wave__text");
 const originalFontSize = window.getComputedStyle(waveSectionText).fontSize;
-const observer = new IntersectionObserver(
+const observerWaveText = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       waveSectionText.style.fontSize = entry.isIntersecting ? originalFontSize : "0";
@@ -15,7 +15,7 @@ const observer = new IntersectionObserver(
   },
   { rootMargin: "-30% 0%" }
 );
-observer.observe(document.querySelector(".section-wave"));
+observerWaveText.observe(document.querySelector(".section-wave"));
 
 
 // Script for wave-animation

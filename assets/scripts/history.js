@@ -36,7 +36,6 @@ hiddenFonts.forEach(el => {
 });
 
 
-
 // For the .growing-plant elements
 const growingPlant = document.querySelectorAll(".history__plant-img");
 
