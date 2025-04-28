@@ -1,79 +1,155 @@
-// Script for waterdrop
-const waterIcon = document.querySelector('.section-top__icon');
-window.addEventListener('scroll', () => {
-  waterIcon.classList.toggle('splash', window.scrollY > 100);
-});
 
-
-// Script for section 2 -  Wave text
-const waveSectionText = document.querySelector(".section-wave__text");
-const originalFontSize = window.getComputedStyle(waveSectionText).fontSize;
-const observerWaveText = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      waveSectionText.style.fontSize = entry.isIntersecting ? originalFontSize : "0";
-    });
-  },
-  { rootMargin: "-20% 0%" }
-);
-observerWaveText.observe(document.querySelector(".section-wave"));
-
-
-// Script for wave-animation
-const waveIcon = document.querySelector('.section-wave__icon');
-function handleWaveScroll() {
-  const scrollPosition = window.pageYOffset;
-  const scrollSpeed = scrollPosition * 0.7;
-  waveIcon.style.backgroundPosition = `-${scrollSpeed}px 0`;
-}
-window.addEventListener('scroll', handleWaveScroll);
-
-
-gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
-function horizontalScroll() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Prevents conflicts when resize the screen. Kills any animations running when window gets resized.
-  gsap.set(".horizontal", { clearProps: "all" }); 
-  const scroll = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
-  let xPercentValue; // Sets a variable to store the amount percentage to move the cards horizontally.
-  if (window.innerWidth >= 1000) { // This if statement will only work if the screensize is 1000px or more.
-    // Desktop size
-    xPercentValue = -79 * (scroll.length - 1); // Scrolls content to the left on website screen size  
-  } else {
-    // Mobile size
-    xPercentValue = -111 * (scroll.length - 1); // Scrolls content to the left on phone screen size
-  }
-  gsap.to(scroll, {
-    xPercent: xPercentValue,
-    scrollTrigger: {
-      trigger: ".horizontal", // When content hits .horizontal section, it triggers the scrolling
-      pin: true, // Content stays stuck on screen
-      scrub: 1, // Make the scrolling to feel more smooth!
-      end: "+=4000", // So the scrolling isn't so snappy!
-    },
-      ease: "power1.inOut"
-  });
-}
-horizontalScroll(); // Calls when the site is loaded
-window.addEventListener("resize", horizontalScroll);// If the window gets resized, run the horizontalScroll function again.
-// This is for if you are first on desktop and moves to phone, the function needs to be called again, or else the scrolling will be on phone size. 
-
-
-
-//gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.create({
-  trigger: ".history-wrapper",
-  start: "top top",
-  end: () => "+=" + document.querySelector(".history").offsetHeight,
-  pin: true,
-  scrub: true,
-});
-
-
-// Button (Back to Top)
-const backToTop = document.querySelector('.message__btn');
-backToTop.onclick = function () {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+// For the .hidden-font elements
+const hiddenFonts = document.querySelectorAll(".hidden-font");
+// Options for the IntersectionObserver
+const hiddenFontOptions = {
+    rootMargin: "-10% 0%"  // Adjust margin as needed
 };
+// Callback function for the IntersectionObserver for hidden-font elements
+function hiddenFontIntersectionCb(entries) {
+    entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            // When the section is visible, remove the 'hidden' class
+            target.classList.remove(target.dataset.hidden);
+            // Adjust font-size when the element is visible
+            target.style.fontSize = "120%"; // Font size when element is visible
+        } else {
+            // When the section is invisible, add the 'hidden' class
+            target.classList.add(target.dataset.hidden);
+            // Adjust font-size when element is not visible
+            target.style.fontSize = "0"; // Font size when element is not visible (hidden)
+        }
+    });
+}
+// Create the IntersectionObserver instance for hidden-font
+const hiddenFontObserver = new IntersectionObserver(hiddenFontIntersectionCb, hiddenFontOptions);
+// Observe each target element
+hiddenFonts.forEach(el => {
+    hiddenFontObserver.observe(el);
+});
+
+// For the .growing-plant elements
+const growingPlant = document.querySelectorAll(".history__plant-img");
+// Options for the IntersectionObserver for growing-plant
+const growingPlantOptions = {
+    rootMargin: "-10% 0%"  // Adjust margin as needed
+};
+// Callback function for the IntersectionObserver for growing-plant elements
+function growingPlantIntersectionCb(entries) {
+    entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            // When the section is visible, remove the 'hidden' class
+            target.classList.remove(target.dataset.hidden);
+            // Adjust height when the element is visible
+            target.style.height = "20%"; // Height when element is visible
+        } else {
+            // When the section is invisible, add the 'hidden' class
+            target.classList.add(target.dataset.hidden);
+            // Adjust height when element is not visible
+            target.style.height = "0"; // Height when element is not visible (hidden)
+        }
+    });
+}
+// Create the IntersectionObserver instance for growing-plant
+const growingPlantObserver = new IntersectionObserver(growingPlantIntersectionCb, growingPlantOptions);
+// Observe each target element
+growingPlant.forEach(el => {
+    growingPlantObserver.observe(el);
+});
+
+
+
+// For the .growing-river elements
+const growingRiver = document.querySelectorAll(".history__river");
+// Options for the IntersectionObserver for growing-river
+const growingRiverOptions = {
+    rootMargin: "-10% 0%"  // Adjust margin as needed
+};
+// Callback function for the IntersectionObserver for growing-river elements
+function growingRiverIntersectionCb(entries) {
+    entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            // When the section is visible, remove the 'hidden' class
+            target.classList.remove(target.dataset.hidden);
+            // Adjust height when the element is visible
+            target.style.width = "100%"; 
+            target.style.left = "0";
+        } else {
+            // When the section is invisible, add the 'hidden' class
+            target.classList.add(target.dataset.hidden);
+            // Adjust height when element is not visible
+            target.style.width = "0";
+        }
+    });
+}
+// Create the IntersectionObserver instance for growing-river
+const growingRiverObserver = new IntersectionObserver(growingRiverIntersectionCb, growingRiverOptions);
+// Observe each target element
+growingRiver.forEach(el => {
+    growingRiverObserver.observe(el);
+});
+
+
+// For the .earth elements
+const earth = document.querySelectorAll(".history__earth-img");
+// Options for the IntersectionObserver for earth
+const earthOptions = {
+    rootMargin: "-10% 0%"  // Adjust margin as needed
+};
+// Callback function for the IntersectionObserver for earth elements
+function earthIntersectionCb(entries) {
+    entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            // When the section is visible, remove the 'hidden' class
+            target.classList.remove(target.dataset.hidden);
+            // Adjust height when the element is visible
+            target.style.transform = "rotate(180deg)"; // Height when element is visible
+        } else {
+            // When the section is invisible, add the 'hidden' class
+            target.classList.add(target.dataset.hidden);
+            // Adjust height when element is not visible
+            target.style.transform = "rotate(0deg)";
+        }
+    });
+}
+// Create the IntersectionObserver instance for earth
+const earthObserver = new IntersectionObserver(earthIntersectionCb, earthOptions);
+// Observe each target element
+earth.forEach(el => {
+    earthObserver.observe(el);
+});
+
+
+// For the .written elements
+const written = document.querySelectorAll(".history__text--written-firstline, .history__text--written-secondline");
+// Options for the IntersectionObserver for earth
+const writtenOptions = {
+    rootMargin: "-10% 0%"  // Adjust margin as needed
+};
+// Callback function for the IntersectionObserver for earth elements
+function writtenIntersectionCb(entries) {
+    entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            // When the section is visible, remove the 'hidden' class
+            target.classList.remove(target.dataset.hidden);
+            // Adjust height when the element is visible
+            target.style.width = "100%";
+        } else {
+            // When the section is invisible, add the 'hidden' class
+            target.classList.add(target.dataset.hidden);
+            // Adjust height when element is not visible
+            target.style.width = "0";
+        }
+    });
+}
+// Create the IntersectionObserver instance for written
+const writtenObserver = new IntersectionObserver(writtenIntersectionCb, writtenOptions);
+// Observe each target element
+written.forEach(el => {
+    writtenObserver.observe(el);
+});
