@@ -68,8 +68,8 @@ table {
   --line-height-goal-p: 1.1;
   --line-height-paragraph: 1.6;
   /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-  --step-0: clamp(1.125rem, 1.0135rem + 0.4575vw, 1.5625rem);
-  --step-1: clamp(1.4996rem, 1.384rem + 0.4742vw, 1.9531rem);
+  --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5625rem);
+  --step-1: clamp(1.4rem, 1.384rem + 0.4742vw, 1.7rem);
   --step-2: clamp(1.999rem, 1.8862rem + 0.4626vw, 2.4414rem);
   --step-3: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
   --step-4: clamp(3.552rem, 3.485rem + 0.2747vw, 3.8147rem);
@@ -91,7 +91,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--step-2);
+  font-size: var(--step-3);
   margin-block-end: 1rem;
 }
 
@@ -238,10 +238,6 @@ img {
     margin-block-start: 30px;
   }
 }
-.hidden-font {
-  font-size: 0;
-}
-
 .history {
   height: 100vh;
   overflow-y: scroll;
@@ -256,6 +252,11 @@ img {
   align-items: center;
   text-align: center;
   position: relative;
+  max-width: 100%;
+  padding-inline: 2rem;
+}
+.history__part--intro {
+  padding-inline: 1rem;
 }
 .history__part--unset {
   justify-content: unset;
@@ -277,6 +278,7 @@ img {
   background-size: 100%;
   background-position: center top, center bottom; /* gradient from top, image at the bottom */
   background-repeat: no-repeat;
+  padding: 0;
 }
 .history__important {
   font-family: "open-sans";
@@ -291,24 +293,28 @@ img {
   height: 200vh;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(84, 57, 99) 26%, rgb(204, 83, 107) 55%, rgb(253, 146, 112) 94%, rgb(0, 0, 0) 94%);
 }
-.history__title {
-  font-size: 3rem;
+.history__title--top {
+  margin-block-start: 12rem;
 }
 .history__text {
   width: 58ch;
+  max-width: 100%;
+}
+.history__text--characterIntro {
+  font-size: var(--step-1);
 }
 .history__text--growing {
   transition: all 3s;
+  max-width: 100%;
 }
 .history__text--shorter {
-  max-width: 48ch;
-  transition: all 5s;
+  width: 48ch;
 }
 .history__text--written-firstline, .history__text--written-secondline {
   transition: all 7s;
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  width: 0;
 }
 .history__text--written-firstline {
   transition-delay: 0;
@@ -333,7 +339,8 @@ img {
 }
 .history__earth-container {
   width: 100%;
-  height: 30%; /* Half the height of the globe */
+  height: 35vw;
+  max-height: 200px;
   overflow: hidden;
   margin-block: 3rem;
 }
@@ -351,13 +358,13 @@ img {
 .history__character-img {
   width: 10%;
 }
-.history__bucketsCharacter-img {
+.history__character-img--buckets {
   display: flex;
   position: absolute;
   bottom: 12%;
   width: 12%;
 }
-.history__smallCharacter-img {
+.history__character-img--small {
   width: 8%;
   margin-block-start: 1.5rem;
 }
@@ -383,12 +390,13 @@ img {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-inline: 2rem;
 }
 .message__text {
   max-width: 75ch;
 }
 .message__slogan {
-  font-size: 1.5rem;
+  font-size: var(--step-0);
   margin-block: 3rem;
   color: rgb(72, 178, 239);
   text-transform: uppercase;
@@ -411,4 +419,28 @@ img {
 }
 .footer__text {
   font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .history__text--written-firstline,
+  .history__text--written-secondline {
+    white-space: wrap; /* Allow wrapping on mobile */
+  }
+  .history__character-img {
+    width: 35%;
+  }
+  .history__boiling-img {
+    width: 55%;
+  }
+  .history__earth-img {
+    width: 90%;
+  }
+  .history__text--left, .history__text--right {
+    width: 20ch;
+    margin: 0;
+  }
+  .history__river {
+    stroke-width: 1.5rem;
+    top: 20%;
+  }
 }/*# sourceMappingURL=style.css.map */

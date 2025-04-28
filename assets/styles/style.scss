@@ -1,18 +1,16 @@
+
 // Imports all css assets
 @use "reset.css";
-
 // Heading font
 @font-face {
     font-family: "bebasneue";
     src: url(../fonts/bebasneue/bebasneue-regular.ttf);
 }
-
 // Main font
 @font-face {
     font-family: "open-sans";
     src: url(../fonts/open_sans/OpenSans-VariableFont_wdth\,wght.ttf);
 }
-
 // Variables
 :root {
     --primary-color: black;
@@ -24,51 +22,43 @@
     --line-height-paragraph: 1.6;
     // Font Sizes - Clamp
     /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-    --step-0: clamp(1.125rem, 1.0135rem + 0.4575vw, 1.5625rem);
-    --step-1: clamp(1.4996rem, 1.384rem + 0.4742vw, 1.9531rem);
+    --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5625rem);
+    --step-1: clamp(1.4rem, 1.384rem + 0.4742vw, 1.7rem);
     --step-2: clamp(1.999rem, 1.8862rem + 0.4626vw, 2.4414rem);
     --step-3: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
     --step-4: clamp(3.552rem, 3.485rem + 0.2747vw, 3.8147rem);
 }
-
 //Globals
 body {
     font-family: "open-sans", sans-serif;
     background-color: var(--primary-color);
     color: var(--text-color);
 }
-
 h1,
 h2 {
     font-family: "bebasneue";
 }
-
 h1 {
     font-size: var(--step-4);
 }
-
 h2 {
-    font-size: var(--step-2);
+    font-size: var(--step-3);
     margin-block-end: 1rem;
 }
-
 p,
 li {
     font-size: var(--step-0);
     font-weight: 400;
     line-height: var(--line-height-paragraph);
 }
-
 img {
     width: 100%;
     max-width: 100%;
     height: auto;
 }
-
 .line-break {
     display: block;
 }
-
 // Section 1 - Intro + Waterdrop
 .section-top {
     display: flex;
@@ -79,7 +69,6 @@ img {
     height: 100vh;
     padding-inline: 3rem;
     gap: 1%;
-
     &__text {
         font-size: var(--step-1);
         font-weight: 700;
@@ -93,11 +82,9 @@ img {
         width: 8vh;
     }
 }
-
 .splash {
     animation: splash-effect 5s forwards;
 }
-
 @keyframes splash-effect {
     0% {
         transform: translateY(0) scale(1);
@@ -108,7 +95,6 @@ img {
         opacity: 0;
     }
 }
-
 // Section 2 -  Wave effect
 .section-wave {
     position: relative;
@@ -120,7 +106,6 @@ img {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-
     &__text {
         font-size: var(--step-2);
         max-width: 45ch;
@@ -136,7 +121,6 @@ img {
         background: url(/assets/elements/wave.svg) repeat-x;
     }
 }
-
 // Horizontal-Scroll
 .horizontal {
     position: relative;
@@ -183,7 +167,6 @@ img {
         }
     }
 }
-
 @media (max-width: 999px) {
     .horizontal {
         flex-direction: column;
@@ -201,10 +184,6 @@ img {
         margin-block-start: 30px;
     }
 }
-.hidden-font {
-    font-size: 0;
-}
-
 // Facts about goal 6 
 .history { 
     height: 100vh;
@@ -220,7 +199,12 @@ img {
         align-items: center;
         text-align: center;
         position: relative;
-
+        max-width: 100%;
+        padding-inline: 2rem;
+        
+        &--intro {
+            padding-inline: 1rem;
+        }
         &--unset {
             justify-content: unset;
         }
@@ -238,7 +222,6 @@ img {
                 center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
         }
-
         &--hope {
             background: linear-gradient(
                 180deg,
@@ -253,7 +236,6 @@ img {
                 center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
         }
-
         &--red {
             background: linear-gradient(
                 180deg,
@@ -266,9 +248,9 @@ img {
                 center top,
                 center bottom; /* gradient from top, image at the bottom */
             background-repeat: no-repeat;
+            padding: 0;
         }
     }
-
     &__important {
         font-family: 'open-sans';
         font-weight: 900;
@@ -279,7 +261,6 @@ img {
             margin-block-end: 1rem;
         }
     }
-
     &__sunrise {
         height: 200vh;
         background: linear-gradient(
@@ -291,30 +272,31 @@ img {
             rgba(0, 0, 0, 1) 94%
         );
     }
-
     &__title {
-        font-size: 3rem;
+        &--top {
+            margin-block-start: 12rem;
+        }
     }
     
     &__text {
         width: 58ch;
-
+        max-width: 100%;
+        &--characterIntro {
+            font-size: var(--step-1);
+        }
         &--growing {
             transition: all 3s;
+            max-width: 100%;
         }
-
         &--shorter {
-            max-width: 48ch;
-            transition: all 5s;
+            width: 48ch;
         }
-
         &--written-firstline, &--written-secondline {
             transition: all 7s;
+            width: 100%;
             overflow: hidden;
             white-space: nowrap;
-            width: 0;
         }
-
         &--written-firstline {
             transition-delay: 0;
         }
@@ -322,17 +304,14 @@ img {
         &--written-secondline {
             transition-delay: 2.5s;
         }
-
         &--top {
             margin-block-start: 12rem;
         }
-
         &--left {
             align-self: flex-start;
             position: absolute;
             top: 20%;
         }
-
         &--right {
             align-self: flex-end;
             margin-inline-end: 7rem;
@@ -341,14 +320,13 @@ img {
             bottom: 15%;
         }
     }
-
     &__earth-container {
         width: 100%;
-        height: 30%; /* Half the height of the globe */
+        height: 35vw;
+        max-height: 200px;
         overflow: hidden;
         margin-block: 3rem;
     }
-
     &__river {
         stroke: var(--backround-color);
         stroke-width: 2.5rem;
@@ -360,40 +338,33 @@ img {
         left: 0;
         top: 25%;
     }
-
     &__character-img {
         width: 10%;
+        &--buckets {
+            display: flex;
+            position: absolute;
+            bottom: 12%;
+            width: 12%;
+        }
+        &--small {
+            width: 8%;
+            margin-block-start: 1.5rem;
+        }
     }
-
-    &__bucketsCharacter-img {
-        display: flex;
-        position: absolute;
-        bottom: 12%;
-        width: 12%;
-    }
-
-    &__smallCharacter-img {
-        width: 8%;
-        margin-block-start: 1.5rem;
-    }
-
     &__boiling-img {
         width: 20%;
         margin-block: 3rem;
     }
-
     &__earth-img {
         width: 30%;
         transition: all 6s;
     }
-
     &__plant-img {
         position: absolute;
         bottom: 10%;
         transition: all 3s;
     }
 }
-
 .message {
     border-top: 0.1rem solid #09557e;
     text-align: center;
@@ -402,19 +373,17 @@ img {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
+    padding-inline: 2rem;
     &__text {
         max-width: 75ch;
     }
-
     &__slogan {
-        font-size: 1.5rem;
+        font-size: var(--step-0);
         margin-block: 3rem;
         color: rgb(72, 178, 239);
         text-transform: uppercase;
         font-weight: 600;
     }
-
     &__btn {
         padding: 1.2rem;
         border-radius: 1rem;
@@ -424,14 +393,41 @@ img {
         text-transform: uppercase;
     }
 }
-
 .footer {
     padding: 2.5rem;
     text-align: center;
     color: #8ba7b5;
     background-color: #09557e;
-
     &__text {
         font-size: 0.8rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .history__text--written-firstline,
+    .history__text--written-secondline {
+        white-space: wrap; /* Allow wrapping on mobile */
+    }
+    .history {
+        &__character-img {
+            width: 35%;
+        }
+    
+        &__boiling-img {
+            width: 55%;
+        }
+    
+        &__earth-img {
+            width: 90%;
+        }
+        &__text {
+            &--left, &--right {
+                width: 20ch;
+                margin: 0;
+            }
+        }
+        &__river {
+            stroke-width: 1.5rem;
+            top: 20%;
+        }
     }
 }
