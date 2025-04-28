@@ -31,7 +31,6 @@ window.addEventListener('scroll', handleWaveScroll);
 
 gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Prevents conflicts when resize the screen. Kills any animations running when window gets resized.
   gsap.set(".horizontal", { clearProps: "all" }); 
   const scroll = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
   let xPercentValue; // Sets a variable to store the amount percentage to move the cards horizontally.

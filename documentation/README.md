@@ -17,5 +17,19 @@ We also created a more low-fidility prototype(kinda) of our idea in figma, to re
 ### GETTING STARTED AND GITHUB PAGES:
 (Instructions for getting started and link to Github pages.)
 
+To get started with this you have to copy this link, and paste it into your preferred browser: 
+
 ### TECHNOLOGY STACK and IMPLEMENTATIONS:
 (Technology stack employed and list of animations, interactions and observers implemented.)
+
+The technology stacks we employed was: 
+ * HTML
+ * CSS
+ * JavaScript
+ * Gsap scrollTrigger
+
+For animation, interaction and observers we implemented: 
+* Horizontal scrolling animation using GSAP ScrollTrigger
+* Animated SVG waterdrop icons
+* Section fade-in on scroll
+* Responsive layout adjustments for mobile and desktop
