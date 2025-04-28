@@ -228,6 +228,19 @@ img {
     margin-block-start: 30px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  /* Force vertical stacking even on desktop */
+  .horizontal {
+    flex-direction: column;
+  }
+  .horizontal__container {
+    width: 80%;
+    height: 550px;
+  }
+  .horizontal__container:nth-child(1) {
+    margin-inline-start: 0;
+  }
+}
 .history {
   height: 100vh;
   overflow-y: scroll;
