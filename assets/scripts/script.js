@@ -37,11 +37,14 @@ gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
   gsap.set(".horizontal", { clearProps: "all" });
   const scroll = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
+  const isDesktop = window.innerWidth >= 1000;
+  const isMobile = window.innerWidth < 1000; 
   let xPercentValue; // Sets a variable to store the amount percentage to move the cards horizontally.
-  if (window.innerWidth >= 1000) { // This if statement will only work if the screensize is 1000px or more.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isDesktop && !prefersReducedMotion) { // This if statement will only work if the screensize is 1000px or more.
     // Desktop size
     xPercentValue = -79 * (scroll.length - 1); // Scrolls content to the left on website screen size  
-  } else {
+  } else if(isMobile && !prefersReducedMotion){
     // Mobile size
     xPercentValue = -111 * (scroll.length - 1); // Scrolls content to the left on phone screen size
   }
@@ -60,14 +63,17 @@ horizontalScroll(); // Calls when the site is loaded
 window.addEventListener("resize", horizontalScroll);// If the window gets resized, run the horizontalScroll function again.
 // This is for if you are first on desktop and moves to phone, the function needs to be called again, or else the scrolling will be on phone size. 
 
+// https://gsap.com/docs/v3/Plugins/ScrollTrigger/?page=1 This helped us with implementing gsap scrolltrigger
+
 
 //gsap.registerPlugin(ScrollTrigger);
+// Makes the page stop inside each section of the history
 ScrollTrigger.create({
-  trigger: ".history-wrapper",
-  start: "top top",
-  end: () => "+=" + document.querySelector(".history").offsetHeight,
-  pin: true,
-  scrub: true,
+    trigger: ".history",
+    start: "top top",
+    end: () => "+=" + document.querySelector(".history").offsetHeight,
+    pin: true,
+    scrub: true,
 });
 
 
