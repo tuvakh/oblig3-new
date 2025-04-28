@@ -60,13 +60,13 @@ window.addEventListener("resize", horizontalScroll);// If the window gets resize
 // This is for if you are first on desktop and moves to phone, the function needs to be called again, or else the scrolling will be on phone size. 
 
 
-//gsap.registerPlugin(ScrollTrigger);
+// Makes the page stop inside each section of the history
 ScrollTrigger.create({
-  trigger: ".history-wrapper",
-  start: "top top",
-  end: () => "+=" + document.querySelector(".history").offsetHeight,
-  pin: true,
-  scrub: true,
+    trigger: ".history",
+    start: "top top",
+    end: () => "+=" + document.querySelector(".history").offsetHeight,
+    pin: true,
+    scrub: true,
 });
 
 

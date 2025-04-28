@@ -122,7 +122,7 @@ img {
 }
 // Horizontal-Scroll
 .horizontal {
-        display: flex;
+    display: flex;
     height: 100vh;
     gap: 2rem;
     background-color: #09557e;
@@ -175,6 +175,7 @@ img {
         margin-block-start: 30px;
     }
 }
+
 @media (prefers-reduced-motion: reduce) {
     /* Force vertical stacking even on desktop */
     .horizontal {
@@ -189,12 +190,13 @@ img {
     }
   }
   
-// Facts about goal 6 
+// History about Maya
 .history { 
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
   
+    // Makes each part of the story fill the whole viewport
     &__part {
         scroll-snap-align: start;
         height: 100vh;
@@ -210,10 +212,10 @@ img {
         &--intro {
             padding-inline: 1rem;
         }
-        &--unset {
+        &--unset { // makes it possible to place text further up on the page, instead of centered
             justify-content: unset;
         }
-        &--drought {
+        &--drought-gradient {
             background: linear-gradient(
                     180deg,
                     rgba(0, 0, 0, 0.7) 0%,
@@ -224,10 +226,10 @@ img {
             background-size: 100%;
             background-position:
                 center top,
-                center bottom; /* gradient from top, image at the bottom */
+                center bottom;
             background-repeat: no-repeat;
         }
-        &--hope {
+        &--hope-gradient {
             background: linear-gradient(
                 180deg,
                 rgba(0, 0, 0, 0.7) 0%,
@@ -235,36 +237,22 @@ img {
                 rgba(241, 138, 35, 0.5) 90%,
                 rgba(236, 195, 149, 0.5) 90%
             );
-            background-size: 100%;
-            background-position:
-                center top,
-                center bottom; /* gradient from top, image at the bottom */
-            background-repeat: no-repeat;
         }
-        &--red {
+        &--red-gradient {
             background: linear-gradient(
                 180deg,
                 rgba(236, 195, 149, 0.5) 0,
                 rgba(238, 50, 50, 0.5) 30%,
                 rgba(0, 0, 0, 0.1) 80%
             );
-            background-size: 100%;
-            background-position:
-                center top,
-                center bottom; /* gradient from top, image at the bottom */
-            background-repeat: no-repeat;
             padding: 0;
         }
     }
-    &__important {
+    &__importantText { 
         font-family: 'open-sans';
         font-weight: 900;
         text-transform: uppercase;
         transition: all 3s;
-        
-        &--name {
-            margin-block-end: 1rem;
-        }
     }
     &__sunrise {
         height: 200vh;
@@ -277,15 +265,11 @@ img {
             rgba(0, 0, 0, 1) 94%
         );
     }
-    &__title {
-        &--top {
-            margin-block-start: 12rem;
-        }
-    }
     
     &__text {
         width: 58ch;
         max-width: 100%;
+        
         &--characterIntro {
             font-size: var(--step-1);
         }
@@ -321,6 +305,7 @@ img {
             bottom: 15%;
         }
     }
+    // Cuts the earth image in half
     &__earth-container {
         width: 100%;
         height: 35vw;
@@ -341,6 +326,7 @@ img {
     }
     &__character-img {
         width: 10%;
+        padding-block-start: 1rem;
         &--buckets {
             display: flex;
             position: absolute;
@@ -403,10 +389,11 @@ img {
         font-size: 0.8rem;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .history__text--written-firstline,
     .history__text--written-secondline {
-        white-space: wrap; /* Allow wrapping on mobile */
+        white-space: wrap;
     }
     .history {
         &__character-img {
