@@ -4,6 +4,7 @@ window.addEventListener('scroll', () => {
   waterIcon.classList.toggle('splash', window.scrollY > 100);
 });
 
+
 // Script for section 2 -  Wave text
 const waveSectionText = document.querySelector(".section-wave__text");
 const originalFontSize = window.getComputedStyle(waveSectionText).fontSize;
@@ -13,7 +14,7 @@ const observerWaveText = new IntersectionObserver(
       waveSectionText.style.fontSize = entry.isIntersecting ? originalFontSize : "0";
     });
   },
-  { rootMargin: "-30% 0%" }
+  { rootMargin: "-20% 0%" }
 );
 observerWaveText.observe(document.querySelector(".section-wave"));
 
@@ -58,15 +59,21 @@ window.addEventListener("resize", horizontalScroll);// If the window gets resize
 
 
 
-
-
 //gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.create({
-    trigger: ".history-wrapper",
-    start: "top top",
-    end: () => "+=" + document.querySelector(".history").offsetHeight,
-    pin: true,
-    scrub: true,
-  });
+  trigger: ".history-wrapper",
+  start: "top top",
+  end: () => "+=" + document.querySelector(".history").offsetHeight,
+  pin: true,
+  scrub: true,
+});
 
-  
+
+// Button (Back to Top)
+const backToTop = document.querySelector('.message__btn');
+backToTop.onclick = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
