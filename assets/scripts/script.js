@@ -28,32 +28,37 @@ function handleWaveScroll() {
 window.addEventListener('scroll', handleWaveScroll);
 
 
-// Script for horizontal-scroll
 gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Prevents conflicts when resize the screen. Kills any animations running when window gets resized. 
-  gsap.set(".horizontal", { clearProps: "all" }); // 
-  if (window.innerWidth >= 1000) { // This gsap will only work if the screensize is 1000px or more.
-    const content = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
-    gsap.to(content, {
-      xPercent: -79 * (content.length - 1), // Scrolls content to the left. 
-      scrollTrigger: {
-        trigger: ".horizontal", // When content hits .horizontal section, it triggers the scrolling
-        pin: true, // Content stays stuck on screen
-        scrub: 1,// Make the scrolling to feel more smooth!
-        end: "+=4000" // So the scrolling isn't so snappy!
-      },
-      ease: "power1.inOut",
-    });
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Prevents conflicts when resize the screen. Kills any animations running when window gets resized.
+  gsap.set(".horizontal", { clearProps: "all" }); 
+  const scroll = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
+  let xPercentValue; // Sets a variable to store the amount percentage to move the cards horizontally.
+  if (window.innerWidth >= 1000) { // This if statement will only work if the screensize is 1000px or more.
+    // Desktop size
+    xPercentValue = -79 * (scroll.length - 1); // Scrolls content to the left on website screen size  
   } else {
-    gsap.set(".horizontal", { x: 0 }); /// If the screensize is less than 1000px this code runs instead. Resets the positions. 
+    // Mobile size
+    xPercentValue = -111 * (scroll.length - 1); // Scrolls content to the left on phone screen size
   }
+  gsap.to(scroll, {
+    xPercent: xPercentValue,
+    scrollTrigger: {
+      trigger: ".horizontal", // When content hits .horizontal section, it triggers the scrolling
+      pin: true, // Content stays stuck on screen
+      scrub: 1, // Make the scrolling to feel more smooth!
+      end: "+=4000", // So the scrolling isn't so snappy!
+    },
+      ease: "power1.inOut"
+  });
 }
-
 horizontalScroll(); // Calls when the site is loaded
-
-window.addEventListener("resize", horizontalScroll); // If the window gets resized, run the hroizontalScrool function again.
+window.addEventListener("resize", horizontalScroll);// If the window gets resized, run the horizontalScroll function again.
 // This is for if you are first on desktop and moves to phone, the function needs to be called again, or else the scrolling will be on phone size. 
+
+
+
+
 
 //gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.create({
