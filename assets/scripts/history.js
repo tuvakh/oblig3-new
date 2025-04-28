@@ -155,41 +155,30 @@ earth.forEach(el => {
 
 // For the .written elements
 const written = document.querySelectorAll(".history__text--written-firstline, .history__text--written-secondline");
-
-// Options for the IntersectionObserver for earth
-const writtenOptions = {
-    rootMargin: "-10% 0%"  // Adjust margin as needed
-};
-
-// Callback function for the IntersectionObserver for earth elements
-function writtenIntersectionCb(entries) {
-    entries.forEach(entry => {
-        const target = entry.target;
-
-        if (entry.isIntersecting) {
-            // When the section is visible, remove the 'hidden' class
-            target.classList.remove(target.dataset.hidden);
-
-            // Adjust height when the element is visible
-            target.style.width = "100%"; // Height when element is visible
-            target.style.whiteSpace = "nowrap";
-            target.style.overflow = "hidden";
-        } else {
-            // When the section is invisible, add the 'hidden' class
-            target.classList.add(target.dataset.hidden);
-
-            // Adjust height when element is not visible
-            target.style.width = "0";
-            target.style.whiteSpace = "nowrap";
-            target.style.overflow = "hidden";
-        }
-    });
-}
-
-// Create the IntersectionObserver instance for written
-const writtenObserver = new IntersectionObserver(writtenIntersectionCb, writtenOptions);
-
-// Observe each target element
-written.forEach(el => {
-    writtenObserver.observe(el);
-});
+ // Options for the IntersectionObserver for earth
+ const writtenOptions = {
+     rootMargin: "-10% 0%"  // Adjust margin as needed
+ };
+ // Callback function for the IntersectionObserver for earth elements
+ function writtenIntersectionCb(entries) {
+     entries.forEach(entry => {
+         const target = entry.target;
+         if (entry.isIntersecting) {
+             // When the section is visible, remove the 'hidden' class
+             target.classList.remove(target.dataset.hidden);
+             // Adjust height when the element is visible
+             target.style.width = "100%";
+         } else {
+             // When the section is invisible, add the 'hidden' class
+             target.classList.add(target.dataset.hidden);
+             // Adjust height when element is not visible
+             target.style.width = "0";
+         }
+     });
+ }
+ // Create the IntersectionObserver instance for written
+ const writtenObserver = new IntersectionObserver(writtenIntersectionCb, writtenOptions);
+ // Observe each target element
+ written.forEach(el => {
+     writtenObserver.observe(el);
+ });
