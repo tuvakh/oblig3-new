@@ -36,6 +36,7 @@ hiddenFonts.forEach(el => {
 });
 
 
+
 // For the .growing-plant elements
 const growingPlant = document.querySelectorAll(".history__plant-img");
 
@@ -48,7 +49,6 @@ const growingPlantOptions = {
 function growingPlantIntersectionCb(entries) {
     entries.forEach(entry => {
         const target = entry.target;
-
         if (entry.isIntersecting) {
             // When the section is visible, remove the 'hidden' class
             target.classList.remove(target.dataset.hidden);
@@ -88,7 +88,6 @@ const growingRiverOptions = {
 function growingRiverIntersectionCb(entries) {
     entries.forEach(entry => {
         const target = entry.target;
-
         if (entry.isIntersecting) {
             // When the section is visible, remove the 'hidden' class
             target.classList.remove(target.dataset.hidden);
@@ -113,7 +112,6 @@ const growingRiverObserver = new IntersectionObserver(growingRiverIntersectionCb
 growingRiver.forEach(el => {
     growingRiverObserver.observe(el);
 });
-
 
 
 // For the .earth elements
