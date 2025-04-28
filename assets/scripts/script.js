@@ -37,14 +37,11 @@ gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
   gsap.set(".horizontal", { clearProps: "all" });
   const scroll = document.querySelectorAll(".horizontal .horizontal__container"); // Finds elements inside .horizontal and .horizontal__container and puts them inside a variable
-  const isDesktop = window.innerWidth >= 1000;
-  const isMobile = window.innerWidth < 1000; 
   let xPercentValue; // Sets a variable to store the amount percentage to move the cards horizontally.
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (isDesktop && !prefersReducedMotion) { // This if statement will only work if the screensize is 1000px or more.
+  if (window.innerWidth >= 1000) { // This if statement will only work if the screensize is 1000px or more.
     // Desktop size
     xPercentValue = -79 * (scroll.length - 1); // Scrolls content to the left on website screen size  
-  } else if(isMobile && !prefersReducedMotion){
+  } else {
     // Mobile size
     xPercentValue = -111 * (scroll.length - 1); // Scrolls content to the left on phone screen size
   }
