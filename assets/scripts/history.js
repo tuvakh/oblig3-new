@@ -1,4 +1,4 @@
-// Makes paragraphs with the hidden-font class appear when you scroll to it
+// HIDDEN FONT
 const hiddenFonts = document.querySelectorAll(".hidden-font");
 // Options for the IntersectionObserver for hidden-font
 const hiddenFontOptions = {
@@ -29,7 +29,7 @@ hiddenFonts.forEach(el => {
 });
 
 
-// Makes the plant image grow when you scroll to it
+// GROWING PLANT
 const growingPlant = document.querySelectorAll(".history__plant-img");
 // Options for the IntersectionObserver for growing-plant
 const growingPlantOptions = {
@@ -60,7 +60,7 @@ growingPlant.forEach(el => {
 });
 
 
-// Makes the river path grow/appear when you scroll to it
+// GROWING RIVER
 const growingRiver = document.querySelectorAll(".history__river");
 // Options for the IntersectionObserver for growing-river
 const growingRiverOptions = {
@@ -92,7 +92,7 @@ growingRiver.forEach(el => {
 });
 
 
-// Makes the earth rotate when you scroll to it
+// ROTATING EARTH
 const earth = document.querySelectorAll(".history__earth-img");
 // Options for the IntersectionObserver for earth
 const earthOptions = {
@@ -123,7 +123,7 @@ earth.forEach(el => {
 });
 
 
-// Makes paragraphs with written class appear when you scroll to it, with a typewriting effect
+// TYPEWRITING EFFECT
 const written = document.querySelectorAll(".history__text--written-firstline, .history__text--written-secondline");
 // Options for the IntersectionObserver for written text
 const writtenOptions = {
