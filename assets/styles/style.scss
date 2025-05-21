@@ -122,69 +122,32 @@ img {
 }
 // Horizontal-Scroll
 .horizontal {
-    display: flex;
+    width: max-content;
     height: 100vh;
-    gap: 2rem;
-    background-color: #09557e;
-    align-items: center;
-    overflow-x: hidden;
-    &__container {
-        flex-shrink: 0;
-        padding: 1rem;
-        height: 79%;
-        width: 30%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        border: 1.5px solid #fff;
-        border-radius: 20px;
-        
-        &:nth-child(1) {
-            margin-inline-start: 2rem;
-        }
-    }
-}
-.scrollContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    margin-block-start: 80px;
-    & > * {
-        text-align: center;
-    }
-    &__container {
-        position: relative;
-        &--img {
-            display: block;
-            width: 150px;
-        }
-        &--title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
-}
-@media (max-width: 999px) {
-    .horizontal__container {
-        width: 80%;
-        height: 550px;  
+    position: relative;
+    overflow: hidden;
 
-    }
-    .scrollContent{
-        margin-block-start: 30px;
+    &__container {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
     }
 }
   
 // History about Maya
-.history { 
+.scroll-snap {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-snap-type: y mandatory;
-  
+
+    &__on {
+        scroll-snap-align: start;
+    }
+}
+.history { 
     // Makes each part of the story fill the whole viewport
     &__part {
-        scroll-snap-align: start;
+        min-width: 100vw;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -192,7 +155,6 @@ img {
         align-items: center;
         text-align: center;
         position: relative;
-        max-width: 100%;
         padding-inline: 2rem;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -243,8 +205,6 @@ img {
                 center bottom;
             background-repeat: no-repeat;
         }
-       
-        
     }
     &__importantText { 
         font-family: 'open-sans';
@@ -306,6 +266,7 @@ img {
     // Cuts the earth image in half
     &__earth-container {
         width: 100%;
+        height: 35vh;
         max-height: 400px;
         overflow: hidden;
         position: absolute;
