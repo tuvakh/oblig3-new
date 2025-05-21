@@ -60,38 +60,6 @@ growingPlant.forEach(el => {
 });
 
 
-// GROWING RIVER
-const growingRiver = document.querySelectorAll(".history__river");
-// Options for the IntersectionObserver for growing-river
-const growingRiverOptions = {
-    rootMargin: "-10% 0%" 
-};
-// Callback function for the IntersectionObserver for growing-river elements
-function growingRiverIntersectionCb(entries) {
-    entries.forEach(entry => {
-        const target = entry.target;
-        if (entry.isIntersecting) {
-            // When the section is visible, remove the 'hidden' class
-            target.classList.remove(target.dataset.hidden);
-            // Width and placement when element is visible
-            target.style.width = "100%"; 
-            target.style.left = "0";
-        } else {
-            // When the section is invisible, add the 'hidden' class
-            target.classList.add(target.dataset.hidden);
-            // Width when element is not visible
-            target.style.width = "0";
-        }
-    });
-}
-// Create the IntersectionObserver instance for growing-river
-const growingRiverObserver = new IntersectionObserver(growingRiverIntersectionCb, growingRiverOptions);
-// Observe each target element
-growingRiver.forEach(el => {
-    growingRiverObserver.observe(el);
-});
-
-
 // ROTATING EARTH
 const earth = document.querySelectorAll(".history__earth-img");
 // Options for the IntersectionObserver for earth

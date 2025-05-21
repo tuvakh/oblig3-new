@@ -21,18 +21,6 @@ const observerWaveText = new IntersectionObserver(
 );
 observerWaveText.observe(document.querySelector(".section-wave"));
 
-
-// Script for wave-animation
-// Moves the wave-background horizontally as you scroll. The 0.7 multiplier slows the wave, creating a smooth wave effect.
-const waveIcon = document.querySelector('.section-wave__icon');
-function handleWaveScroll() {
-  const scrollPosition = window.pageYOffset;
-  const scrollSpeed = scrollPosition * 0.7;
-  waveIcon.style.backgroundPosition = `-${scrollSpeed}px 0`;
-}
-window.addEventListener('scroll', handleWaveScroll);
-
-
 gsap.registerPlugin(ScrollTrigger); // Tells gsap to use scrolltrigger
 function horizontalScroll() {
   gsap.set(".horizontal", { clearProps: "all" });
@@ -73,7 +61,6 @@ ScrollTrigger.create({
     scrub: true,
 });
 
-
 // Button (Back to Top)
 // Scrolls the page to the top with a gradual animation using behavior: 'smooth' when clicked, avoiding an instant jump.
 const backToTop = document.querySelector('.message__btn');
@@ -83,3 +70,5 @@ backToTop.onclick = function () {
     behavior: 'smooth'
   });
 };
+
+ 
