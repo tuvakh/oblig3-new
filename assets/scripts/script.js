@@ -1,58 +1,126 @@
-// Script for waterdrop (scroll-activated)
-// Makes the water drop icon to add/remove the "splash" effect, when you scroll down past 100 pixels.
-const waterIcon = document.querySelector('.section-top__icon');
-window.addEventListener('scroll', () => {
-  waterIcon.classList.toggle('splash', window.scrollY > 100);
-});
+const waterIcon = document.querySelector('.history__icon');
+const target = document.querySelector('.history__part--intro');
 
 
-// Script for section 2 -  Wave text
-/* Uses Intersection Observer to make text appear/disappear by adjusting font size as the section enters/exits the viewport 
-(with a 20% scroll buffer)*/
-const waveSectionText = document.querySelector(".section-wave__text");
-const originalFontSize = window.getComputedStyle(waveSectionText).fontSize;
-const observerWaveText = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      waveSectionText.style.fontSize = entry.isIntersecting ? originalFontSize : "0";
-    });
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    waterIcon.classList.toggle('splash', entry.isIntersecting);
   },
-  { rootMargin: "-20% 0%" }
+  {
+    threshold: 0.1, 
+  }
 );
-observerWaveText.observe(document.querySelector(".section-wave"));
 
+observer.observe(target);
+
+// Horizontal
 gsap.registerPlugin(ScrollTrigger);
 
 function horizontalScroll() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  gsap.set(".horizontal", { clearProps: "all" });
-
-  const horizontalSections = document.querySelectorAll(".horizontal");
-
-  horizontalSections.forEach(section => {
-    const container = section.querySelector(".horizontal__container");
-
-    const scrollWidth = container.scrollWidth - window.innerWidth;
-    const scrollDuration = scrollWidth * 2; // Adjust scroll "speed"
-
-    gsap.to(container, {
-      x: -scrollWidth,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        pin: true,
-        scrub: 1,
-        end: `+=${scrollDuration}`,
-      }
+    // Remove all existing ScrollTriggers (important to reset on resize or re-init)
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  
+    // Clear any inline GSAP styles on .horizontal elements
+    gsap.set(".horizontal", { clearProps: "all" });
+  
+    // Select all horizontal scroll sections
+    const horizontalSections = document.querySelectorAll(".horizontal");
+  
+    horizontalSections.forEach(section => {
+      const background = section.querySelector(".horizontal__background, .horizontal__background2");
+      
+      const girl = section.querySelector(".horizontal__character");
+  
+      // Calculate how far the background should scroll horizontally
+      // scrollWidth of background minus the viewport width
+      const scrollDistance = background.scrollWidth - window.innerWidth;
+  
+      // You can adjust scrollDuration multiplier for scroll length
+      const scrollDuration = scrollDistance * 2;
+  
+      // Animate background moving left
+      gsap.to(background, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          scrub: 1,
+          end: `+=${scrollDuration}`,
+          anticipatePin: 1,
+          onEnter: () => inHorizontal = true,
+          onLeave: () => inHorizontal = false,
+          onEnterBack: () => inHorizontal = true,
+          onLeaveBack: () => inHorizontal = false,
+        }
+      });
+      
+      // Animate girl moving right (opposite direction)
+      gsap.to(girl, {
+        x: scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          scrub: 1,
+          end: `+=${scrollDuration}`, 
+        }
+      });
     });
+  }
+  let timeoutId;
+  let inHorizontal = false;
+
+function isInHorizontalSection() {
+  const horizontals = document.querySelectorAll('.horizontal');
+  const scrollPos = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  const middle = scrollPos + viewportHeight / 2;
+
+  return Array.from(horizontals).some(section => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    return middle >= top && middle < bottom;
   });
 }
 
+function snapScroll() {
+    if (inHorizontal) return;
+  
+    const sections = document.querySelectorAll('.history__part');
+    const scrollPos = window.scrollY;
+    let closest = null;
+    let minDistance = Infinity;
+  
+    sections.forEach(section => {
+      const offset = section.offsetTop;
+      const distance = Math.abs(offset - scrollPos);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = section;
+      }
+    });
+  
+    if (closest) {
+      window.scrollTo({
+        top: closest.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+  
 
+window.addEventListener('scroll', () => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    snapScroll();
+  }, 150);
+});
 
-window.addEventListener("load", horizontalScroll);
-window.addEventListener("resize", horizontalScroll);
-
+  
+  window.addEventListener("load", horizontalScroll);
+  window.addEventListener("resize", horizontalScroll);
+  
 // Button (Back to Top)
 // Scrolls the page to the top with a gradual animation using behavior: 'smooth' when clicked, avoiding an instant jump.
 const backToTop = document.querySelector('.message__btn');

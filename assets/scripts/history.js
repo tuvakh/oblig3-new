@@ -1,3 +1,12 @@
+const girl = document.querySelector('.horizontal__character');
+const frames = ['maya-walking1.svg', 'maya-walking2.svg'];
+let frameIndex = 0;
+
+setInterval(() => {
+    frameIndex = (frameIndex + 1) % frames.length;
+    girl.src = `assets/elements/${frames[frameIndex]}`;
+  }, 500);
+
 // HIDDEN FONT
 const hiddenFonts = document.querySelectorAll(".hidden-font");
 // Options for the IntersectionObserver for hidden-font

@@ -51,36 +51,8 @@ li {
     font-weight: 400;
     line-height: var(--line-height-paragraph);
 }
-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-}
 .line-break {
     display: block;
-}
-// Section 1 - Intro + Waterdrop
-.section-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    padding-inline: 3rem;
-    gap: 1%;
-    &__text {
-        font-size: var(--step-1);
-        font-weight: 700;
-        text-transform: uppercase;
-        line-height: var(--line-height-goal-p);
-        max-width: 40ch;
-    }
-    &__icon {
-        transition: transform 0.5s ease-in-out;
-        opacity: 100%;
-        width: 8vh;
-    }
 }
 .splash {
     animation: splash-effect 5s forwards;
@@ -94,56 +66,42 @@ img {
         opacity: 0;
     }
 }
-// Section 2 -  Wave effect
-.section-wave {
+
+// Horizontal-Scroll
+.horizontal {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    &__text {
-        font-size: var(--step-2);
-        max-width: 45ch;
-        transition: font-size 5s;
-    }
-    &__icon {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 20%;
-        background-size: auto 100%;
-        background: url(../elements/dry-earth.svg);
-    }
-}
-// Horizontal-Scroll
-.horizontal {
-    width: max-content;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+  
+    &__background {
+      position: absolute;
+      height: 100%;
+      width: 150vw;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom left;
 
-    &__container {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
+      &--1 {
+        background-image: url('../elements/village1.svg');
+      }
+      &--2 {
+        background-image: url('../elements/village.svg');
+      }
     }
-}
+
+  
+    &__character {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      height: 40vh;
+      z-index: 2;
+    }
+  }
+  
   
 // History about Maya
-.scroll-snap {
-    height: 100vh;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-
-    &__on {
-        scroll-snap-align: start;
-    }
-}
 .history { 
     // Makes each part of the story fill the whole viewport
     &__part {
@@ -159,10 +117,7 @@ img {
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: bottom;
-
-        &--1 {
-            background-image: url('../elements/village1.svg');
-        }
+       
         &--2 {
             background-image: url('../elements/boiling-water.svg');
         }
@@ -197,14 +152,20 @@ img {
                     rgba(0, 0, 0, 0.7) 0%,
                     rgba(50, 185, 238, 0.5) 30%,
                     rgba(252, 228, 150, 0.1) 65%
-                ),
-                url("../elements/village.svg");
-            background-size: 100%;
-            background-position:
-                center top,
-                center bottom;
-            background-repeat: no-repeat;
+                )
         }
+    }
+    &__heading {
+        font-size: var(--step-1);
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: var(--line-height-goal-p);
+        max-width: 40ch;
+    }
+    &__icon {
+        transition: transform 5s ease-in-out;
+        opacity: 100%;
+        width: 8vh;
     }
     &__importantText { 
         font-family: 'open-sans';
@@ -213,17 +174,28 @@ img {
         transition: all 3s;
     }
     &__sunrise {
-        height: 200vh;
+        background: linear-gradient(
+            180deg,
+            rgba(102, 36, 86, 1) 0%,
+            rgba(160, 115, 16, 1) 100%
+        );
+    }
+    
+    &__bluegradient {
+        position: absolute;
+        width: 100%;
+        height: 400vh;
+        z-index: -1;
         background: linear-gradient(
             180deg,
             rgb(0, 0, 0) 0%,
             rgb(9, 23, 41, 1) 20%,
-            rgba(60, 60, 124, 1) 40%,
-            rgba(102, 36, 86, 1) 60%,
-            rgba(160, 115, 16, 1) 90%
+            rgb(9, 23, 41, 1) 40%,
+            rgb(9, 23, 41, 1) 60%,
+            rgba(60, 60, 124, 1) 75%,
+            rgba(102, 36, 86, 1) 100%
         );
     }
-    
     &__text {
         width: 58ch;
         max-width: 100%;
@@ -310,20 +282,22 @@ img {
     }
     &__slogan {
         font-size: var(--step-0);
-        margin-block: 3rem;
+        margin-block-start: 3rem;
         color: rgb(72, 178, 239);
         text-transform: uppercase;
         font-weight: 600;
     }
     &__btn {
-        padding: 1.2rem;
-        border-radius: 1rem;
-        border: none;
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-transform: uppercase;
+    padding: 1.2rem;
+    margin-block-start: 3rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
     }
 }
+
 .footer {
     padding: 2.5rem;
     text-align: center;
@@ -340,6 +314,10 @@ img {
         white-space: wrap;
     }
     .history {
+        // TO SCALE BACKGROUND IAMGE ON MOBILE
+        &__part {
+            background-size: 150%;
+        }
         &__character-img {
             width: 35%;
         }
