@@ -62,11 +62,18 @@ table {
 }
 :root {
   --primary-color: black;
-  --secondary-color: white;
-  --backround-color: #0082b5;
   --text-color: white;
   --line-height-goal-p: 1.1;
   --line-height-paragraph: 1.6;
+  --font-weight-normal: 400;
+  --font-weight-medium: 600;
+  --font-weight-semibold: 700;
+  --font-weight-bold: 900;
+  --small-space: 1rem;
+  --normal-space: 1.5rem;
+  --medium-space: 3rem;
+  --big-space: 5rem;
+  --mega-space: 10rem;
   /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
   --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5625rem);
   --step-1: clamp(1.4rem, 1.384rem + 0.4742vw, 1.7rem);
@@ -77,6 +84,7 @@ table {
 
 body {
   font-family: "open-sans", sans-serif;
+  font-weight: var(--font-weight-normal);
   background-color: var(--primary-color);
   color: var(--text-color);
 }
@@ -92,13 +100,12 @@ h1 {
 
 h2 {
   font-size: var(--step-3);
-  margin-block-end: 1rem;
+  margin-block-end: var(--small-space);
 }
 
-p,
-li {
+p {
   font-size: var(--step-0);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   line-height: var(--line-height-paragraph);
 }
 
@@ -127,9 +134,10 @@ li {
 }
 .horizontal__background {
   position: absolute;
-  height: 100%;
+  height: 70%;
   width: 150vw;
-  background-size: contain;
+  bottom: 0;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom left;
 }
@@ -147,8 +155,19 @@ li {
   z-index: 2;
 }
 
+.history__heading {
+  font-size: var(--step-1);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  line-height: var(--line-height-goal-p);
+  max-width: 40ch;
+}
+.history__drop {
+  transition: transform 5s ease-in-out;
+  opacity: 100%;
+  width: 8vh;
+}
 .history__part {
-  min-width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -156,58 +175,56 @@ li {
   align-items: center;
   text-align: center;
   position: relative;
-  padding-inline: 2rem;
+  padding-inline: var(--small-space);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom;
 }
-.history__part--2 {
-  background-image: url("../elements/boiling-water.svg");
+.history__part--crowd {
+  background: linear-gradient(rgb(99, 12, 12) 0%, rgb(153, 79, 79) 100%);
 }
-.history__part--3 {
-  background-image: url("../elements/crowd.svg");
+.history__part--news {
+  background: linear-gradient(rgb(71, 67, 61) 0%, rgb(104, 69, 46) 70%, rgb(25, 25, 25) 100%);
 }
-.history__part--4 {
-  background-image: url("../elements/four-people.svg");
+.history__part--earth {
+  background: linear-gradient(rgb(25, 25, 25) 0%, rgb(0, 0, 0) 100%);
 }
-.history__part--5 {
-  background-image: url("../elements/river-countries.svg");
+.history__part--fourPeople, .history__part--countries, .history__part--ending {
+  background: linear-gradient(rgb(53, 9, 3) 5%, rgb(154, 54, 8) 80%, rgb(0, 0, 0) 100%);
 }
-.history__part--6 {
-  background-image: url("../elements/river.svg");
+.history__part--river {
+  background-color: #47433d;
 }
-.history__part--7 {
-  background-image: url("../elements/new-beginning.svg");
+.history__part--progress {
+  background: linear-gradient(rgb(71, 67, 61) 0%, rgb(14, 74, 119) 5%, rgb(40, 105, 165) 30%, rgb(124, 77, 41) 60%);
 }
-.history__part--8 {
-  background-image: url("../elements/ending.svg");
-}
-.history__part--intro {
-  padding-inline: 1rem;
-}
-.history__part--unset {
+.history__part--no-justify {
   justify-content: unset;
 }
-.history__part--drought-gradient {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(50, 185, 238, 0.5) 30%, rgba(252, 228, 150, 0.1) 65%);
-}
-.history__heading {
-  font-size: var(--step-1);
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: var(--line-height-goal-p);
-  max-width: 40ch;
-}
-.history__icon {
-  transition: transform 5s ease-in-out;
-  opacity: 100%;
-  width: 8vh;
+.history__landscape {
+  position: absolute;
+  bottom: 0;
 }
 .history__importantText {
   font-family: "open-sans";
-  font-weight: 900;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   transition: all 3s;
+}
+.history__river {
+  fill: none;
+  stroke: #1a3047;
+  stroke-miterlimit: 10;
+  stroke-width: 165px;
+  position: absolute;
+}
+.history__river path {
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  transition: stroke-dashoffset 5s ease-out;
+}
+.history__river.animate path {
+  stroke-dashoffset: 0;
 }
 .history__sunrise {
   background: linear-gradient(180deg, rgb(102, 36, 86) 0%, rgb(160, 115, 16) 100%);
@@ -223,15 +240,15 @@ li {
   width: 58ch;
   max-width: 100%;
 }
-.history__text--characterIntro {
-  font-size: var(--step-1);
-}
 .history__text--growing {
   transition: all 3s;
   max-width: 100%;
 }
-.history__text--shorter {
+.history__text--short {
   width: 48ch;
+}
+.history__text--shorter {
+  width: 35ch;
 }
 .history__text--written-firstline, .history__text--written-secondline {
   transition: all 7s;
@@ -243,23 +260,11 @@ li {
   transition-delay: 2.2s;
 }
 .history__text--top {
-  margin-block-start: 10rem;
-}
-.history__text--left {
-  align-self: flex-start;
-  position: absolute;
-  top: 25%;
-}
-.history__text--right {
-  align-self: flex-end;
-  margin-inline-end: 5rem;
-  width: 30ch;
-  position: absolute;
-  bottom: 30%;
+  margin-block-start: var(--mega-space);
 }
 .history__earth-container {
   width: 100%;
-  height: 35vh;
+  height: 100vh;
   max-height: 400px;
   overflow: hidden;
   position: absolute;
@@ -267,60 +272,41 @@ li {
 }
 .history__character-img {
   width: 10%;
-  padding-block-start: 1rem;
-}
-.history__character-img--buckets {
-  display: flex;
-  position: absolute;
-  bottom: 12%;
-  width: 12%;
-}
-.history__character-img--small {
-  width: 8%;
-  margin-block-start: 1.5rem;
+  padding-block-start: var(--small-space);
 }
 .history__earth-img {
-  width: 60%;
+  width: 70%;
   transition: all 6s;
 }
 .history__plant-img {
   position: absolute;
   bottom: 10%;
   transition: all 3s;
+  z-index: 4;
 }
 
-.message {
-  border-top: 0.1rem solid #09557e;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding-inline: 2rem;
-}
 .message__text {
   max-width: 75ch;
 }
 .message__slogan {
   font-size: var(--step-0);
-  margin-block-start: 3rem;
+  margin-block-start: var(--medium-space);
   color: rgb(72, 178, 239);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
 }
 .message__btn {
-  padding: 1.2rem;
-  margin-block-start: 3rem;
-  border-radius: 1rem;
+  padding: var(--normal-space);
+  margin-block-start: var(--medium-space);
+  border-radius: var(--small-space);
   border: none;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
 }
 
 .footer {
-  padding: 2.5rem;
+  padding: var(--medium-space);
   text-align: center;
   color: #8ba7b5;
   background-color: #09557e;
@@ -346,12 +332,11 @@ li {
   .history__earth-img {
     width: 90%;
   }
+  .history__earth-container {
+    max-height: 170px;
+  }
   .history__text--left, .history__text--right {
     width: 20ch;
     margin: 0;
-  }
-  .history__river {
-    stroke-width: 1.5rem;
-    top: 20%;
   }
 }/*# sourceMappingURL=style.css.map */

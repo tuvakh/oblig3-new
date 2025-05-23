@@ -129,3 +129,19 @@ const writtenObserver = new IntersectionObserver(writtenIntersectionCb, writtenO
 written.forEach(el => {
     writtenObserver.observe(el);
 });
+
+// GROWING RIVER
+const river = document.querySelector('.history__river');
+
+    const riverObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          river.classList.add('animate');
+          riverObserver.unobserve(river); // Optional: only animate once
+        }
+      });
+    }, {
+      threshold: 0.3 // trigger when 30% visible
+    });
+
+    riverObserver.observe(river);
