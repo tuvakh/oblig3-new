@@ -15,7 +15,7 @@ After the brainstorming session, we created a storyboard to show how our page wi
 We also created a more low-fidility prototype(kinda) of our idea in figma, to remember how we wanted the layout to be. The last part didn't end up looking like the prototype at all, but it still helped us a lot with the layout at the top of the page. ![sketch](lowfi-prototype.png)
 
 ### GETTING STARTED AND GITHUB PAGES:
-To get started with this you have to copy this link, and paste it into your preferred browser: https://idg1293-2025.github.io/oblig3-10/
+To get started with this you have to copy this link, and paste it into your preferred browser: https://tuvakh.github.io/oblig3-new/
 
 ### TECHNOLOGY STACK and IMPLEMENTATIONS:
 The technology stacks we employed was: 
@@ -29,4 +29,4 @@ For animation, interaction and observers we implemented:
 * Animated SVG waterdrop icons
 * Section fade-in on scroll
 * Responsive layout adjustments for mobile and desktop
-* Observers to apply transitions with growing font-sizes, growing images and paths, rotating images and typewriting effects
+* Observers to apply transitions with growing font-sizes, growing images and paths, rotating images, moving girl, typewriting effects and arrow pointing up
