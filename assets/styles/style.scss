@@ -35,7 +35,6 @@
     --medium-space: 3rem;
     --big-space: 5rem;
     --mega-space: 10rem;
-
     --giga-space: 15rem;
 
     // Font Sizes - Clamp
@@ -304,9 +303,6 @@ a {
             display: block;
             overflow-wrap: break-word;
             visibility: hidden;
-        }
-        &--written-secondline {
-            transition-delay: 2.2s;
         }
         &.visible {
             visibility: visible; /* show when ready */

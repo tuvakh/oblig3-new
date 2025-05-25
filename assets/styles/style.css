@@ -303,9 +303,6 @@ a {
   overflow-wrap: break-word;
   visibility: hidden;
 }
-.history__text--written-secondline {
-  transition-delay: 2.2s;
-}
 .history__text.visible {
   visibility: visible; /* show when ready */
 }
