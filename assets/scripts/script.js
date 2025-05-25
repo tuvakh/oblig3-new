@@ -1,24 +1,23 @@
-const waterIcon = document.querySelector('.history__drop');
-const target = document.querySelector('.history__part--intro');
-
-// Intersection Observer for icon animation
-const observer = new IntersectionObserver(
-  ([entry]) => {
-    waterIcon.classList.toggle('splash', entry.isIntersecting);
-  },
-  {
-    threshold: 0.1, 
-  }
-);
-
-observer.observe(target);
-
 // Horizontal scroll setup
 gsap.registerPlugin(ScrollTrigger);
 
 let inHorizontal = false;
+const mediaQuery = window.matchMedia("(max-width: 599px)");
 
 function horizontalScroll() {
+  if (mediaQuery.matches) {
+    // 👇 Clear all styles applied by GSAP when on small screens
+    gsap.set(".horizontal__background", { clearProps: "all" });
+    gsap.set(".horizontal__character", { clearProps: "all" });
+    
+    // 👇 Remove all ScrollTriggers so nothing keeps running
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    inHorizontal = false;
+    return;
+  }
+
+  // 👇 Start horizontal scroll behavior for larger screens
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   gsap.set(".horizontal", { clearProps: "all" });
 
@@ -47,7 +46,7 @@ function horizontalScroll() {
       }
     });
 
-    // Girl animation
+    // Character animation
     gsap.to(girl, {
       x: scrollDistance,
       ease: "none",
@@ -65,34 +64,34 @@ function horizontalScroll() {
 let timeoutId;
 
 function snapScroll() {
-  if (inHorizontal) return;
+    if (window.innerWidth < 768 || inHorizontal) return;
 
-  const footerBuffer = 200; // Space before bottom to stop snapping
-  const scrollPos = window.scrollY;
-  const scrollBottom = scrollPos + window.innerHeight;
-  const docHeight = document.documentElement.scrollHeight;
+    const footerBuffer = 200; // Space before bottom to stop snapping
+    const scrollPos = window.scrollY;
+    const scrollBottom = scrollPos + window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
-  if (scrollBottom + footerBuffer >= docHeight) return;
+    if (scrollBottom + footerBuffer >= docHeight) return;
 
-  const sections = document.querySelectorAll('.history__part');
-  let closest = null;
-  let minDistance = Infinity;
+    const sections = document.querySelectorAll('.history__part');
+    let closest = null;
+    let minDistance = Infinity;
 
-  sections.forEach(section => {
-    const offset = section.offsetTop;
-    const distance = Math.abs(offset - scrollPos);
-    if (distance < minDistance) {
-      minDistance = distance;
-      closest = section;
-    }
-  });
-
-  if (closest) {
-    window.scrollTo({
-      top: closest.offsetTop,
-      behavior: 'smooth'
+    sections.forEach(section => {
+        const offset = section.offsetTop;
+        const distance = Math.abs(offset - scrollPos);
+        if (distance < minDistance) {
+        minDistance = distance;
+        closest = section;
+        }
     });
-  }
+
+    if (closest) {
+        window.scrollTo({
+        top: closest.offsetTop,
+        behavior: 'smooth'
+        });
+    }
 }
 
 // Debounced scroll event
@@ -107,10 +106,15 @@ window.addEventListener("load", horizontalScroll);
 window.addEventListener("resize", horizontalScroll);
 
 // Back to top button
-const backToTop = document.querySelector('.message__btn');
-backToTop.onclick = function () {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+// Scrolls the page to the top with a gradual animation using behavior: 'smooth' when clicked, avoiding an instant jump.
+const backToTopButtons = document.querySelectorAll('.message__btn-top');
+
+backToTopButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-};
+});
+

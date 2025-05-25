@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="assets/scripts/script.js" defer></script>
-    <script src="assets/scripts/history.js" defer></script>
+    <script src="assets/scripts/animations.js" defer></script>
     <title>Oblig 3 - Gruppe 10 </title>
 </head>
 
@@ -15,46 +15,44 @@
         <section class="history">
             <div class="history__bluegradient"></div>
             <div class="history__part">
-                <h1>Goal 6</h1>
-                <p class="history__heading">Ensure availability and sustainable management of water and
-                    sanitation for all</p>
+                <h1>Goal 6 <span class="line-break history__heading">Ensure availability and sustainable management of water and sanitation for all</span></h1>
                 <img class="history__drop" src="assets/elements/waterdrop.svg" alt="waterdrop">
             </div>
             <div class="history__part history__part--intro">
                 <h2 class="history__title">The Clock Is Ticking...</h2>
                 <p class="history__text history__text--growing hidden-font" data-hidden="hidden">Half the world experiences severe water scarcity every year, and the number
-                    is growing. The world pledged to ensure clean water and sanitation for all by 2030, but as of 2022, not a single <a href="https://sdgs.un.org/goals/goal6#targets_and_indicators">target</a> is on track.</p>
+                    is growing. The world pledged to ensure clean water and sanitation for all by 2030, but as of 2022, not a single <a class="target" href="https://sdgs.un.org/goals/goal6#targets_and_indicators">target</a> is on track.</p>
             </div>
             <div class="history__part">
                 <p class="history__text">This is the story about <span class="line-break history__importantText hidden-font" data-hidden="hidden">Maya</span></p>
                 <img class="history__character-img" src="assets/elements/maya.svg" alt="A sad little girl">
             </div>
-            <div class="history__part">
+            <div class="history__part history__wrapper">
                 <p class="history__text history__text--written-firstline" data-hidden="hidden">Every morning, 12-year-old Maya wakes before the sun.</p> 
                 <p class="history__text history__text--written-secondline" data-hidden="hidden">Not to get ready for school—but to fetch water.</p>
             </div>
            
-            <div class="horizontal history__sunrise">
+            <div class="horizontal history__sunrise history__wrapper">
                 <div class="horizontal__background horizontal__background--1"></div> 
                 <img class="horizontal__character" src="assets/elements/maya-walking.svg">
 
-                <div class="history__part history__part--no-justify">
+                <div class="history__part history__part--no-justify history__wrapper">
                     <p class="history__text history__text--top history__text--written-firstline" data-hidden="hidden">She walks nearly 3 kilometers down a dusty path in her rural village.</p>
                     <p class="history__text history__text--written-secondline" data-hidden="hidden">The river she collects from isn't clean, but it's the only option.</p>
                 </div>
             </div>
-            <div class="history__part history__sunrise history__part--no-justify">
+            <div class="history__part history__sunrise history__part--no-justify history__wrapper">
                 <p class="history__text history__text--top history__text--written-firstline" data-hidden="hidden">Boiling the water helps a little—when there's enough fuel,</p>
                 <p class="history__text history__text--written-secondline" data-hidden="hidden">but some days the water makes her sick, and she can't go to school..</p>
-                <img class="history__landscape" src="assets/elements/boiling-water.svg">
+                <img class="history__landscape history__landscape--boiling" src="assets/elements/boiling-water.svg">
             </div>
             <div class="history__part history__part--crowd history__part--no-justify">
-                <p class="history__text  history__text--top">Maya is one of <span class="line-break history__importantText hidden-font" data-hidden="hidden">2.2 billion people worldwide</span> without access to safe drinking water.</p>
-                <img class="history__landscape" src="assets/elements/crowd.svg">
+                <p class="history__text history__text--top">Maya is one of <span class="line-break history__importantText hidden-font" data-hidden="hidden">2.2 billion people worldwide</span> without access to safe drinking water.</p>
+                <img class="history__landscape history__landscape--crowd" src="assets/elements/crowd.svg">
             </div>
             <div class="horizontal history__sunrise">
                 <div class="horizontal__background horizontal__background--2"></div> 
-                    <div class="history__part history__part--no-justify">
+                    <div class="history__part history__part--no-justify history__wrapper">
                         <p class="history__text history__text--top history__text--written-firstline" data-hidden="hidden">Her family lives in a region hit by frequent droughts.</p> 
                         <p class="history__text history__text--written-secondline" data-hidden="hidden">Part of the 1.4 billion affected by droughts between 2002 and 2021.</p>
                     </div>
@@ -62,7 +60,7 @@
             </div>
             <div class="history__part history__part--news history__part--no-justify">
                 <p class="history__text history__text--top history__text--short">On the news, Maya sees images of places with shiny taps, but even those places are changing.</p>
-                <img class="history__landscape" src="assets/elements/news.svg">
+                <img class="history__landscape history__landscape--news" src="assets/elements/news.svg">
             </div>
             <div class="history__part history__part--earth history__part--no-justify">
                 <p class="history__text history__text--top history__text--short">In 2022, half the world faced severe water scarcity.</p>
@@ -72,25 +70,25 @@
             </div>
             <div class="history__part history__part--fourPeople history__part--no-justify">
                 <p class="history__text history__text--top">One in four people lived with extremely high water stress.</p>
-                <img class="history__landscape" src="assets/elements/four-people.svg">
+                <img class="history__landscape history__landscape--statistic" src="assets/elements/statistic.svg">
             </div>
             <div class="history__part history__part--countries history__part--no-justify">
                 <p class="history__text history__text--top history__text--shorter">Maya's river flows through two countries. But neither government talks to the other about how to protect it.</p>
-                <img class="history__landscape" src="assets/elements/countries.svg">
+                <img class="history__landscape history__landscape--countries" src="assets/elements/countries.svg">
             </div>
             <div class="history__part history__part--river">
                 <p class="history__text">Less than <span class="line-break history__importantText hidden-font" data-hidden="hidden">20% of countries</span> with shared waters have strong cooperation.</p>
-                <svg class="history__river"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1050"><path d="M1513.29-84.08c80.56 62.64 113.22 161.73 83.98 243.57-18.58 52-62.68 98.52-118.64 115.81-96.65 29.86-191.31-39.04-251.06-73.06C975.22 58.53 561.83 90.47 412.19 274.87c-94.58 116.55-112.64 329.55-19.81 455.56 192.7 261.57 888.18 182.25 1168.61-36.31 28.61-22.3 98.37-81.48 204.67-99.03 136.63-22.56 259.92 35.77 340.02 85.83"/></svg>
+                <svg class="history__river"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1050" preserveAspectRatio="xMidYMid meet"><path d="M1513.29-84.08c80.56 62.64 113.22 161.73 83.98 243.57-18.58 52-62.68 98.52-118.64 115.81-96.65 29.86-191.31-39.04-251.06-73.06C975.22 58.53 561.83 90.47 412.19 274.87c-94.58 116.55-112.64 329.55-19.81 455.56 192.7 261.57 888.18 182.25 1168.61-36.31 28.61-22.3 98.37-81.48 204.67-99.03 136.63-22.56 259.92 35.77 340.02 85.83"/></svg>
             </div>
             <div class="history__part history__part--no-justify history__part--progress">
                 <h2 class="history__text--top">There is progress:</h2>
                 <p class="history__text">Aid for water projects rose 10% in 2022, after five years of decline. Wastewater treatment is improving, and some regions are managing water more efficiently.</p>
                 <img class="history__plant-img" data-hidden="hidden" src="assets/elements/plant.svg" alt="Plant growing">
-                <img class="history__landscape" src="assets/elements/progress.svg">
+                <img class="history__landscape history__landscape--progress" src="assets/elements/progress.svg">
             </div>
             <div class="history__part history__part--ending history__part--no-justify">
                 <p class="history__text history__text--top history__text--growing hidden-font" data-hidden="hidden">But Maya doesn't feel that progress yet.</p>
-                <img class="history__landscape" src="assets/elements/ending.svg">
+                <img class="history__landscape history__landscape--ending" src="assets/elements/ending.svg">
             </div>
             <div class="message history__part">
                 <h2>We Can't Afford to Wait</h2>
@@ -98,7 +96,13 @@
                     sanitation by 2030, we must move 3 to 6 times faster.
                     Because while statistics matter, it's children like Maya who remind us: every number is a life.</p>
                 <p class="message__slogan">Water is life. Let's act like it.</p>
-                <button class="message__btn">Back to start</button>
+
+                <div class="message__buttons">
+                    <a class="message__btn" href="https://sdgs.un.org/goals/goal6">Read more</a>
+                    <a class="message__btn" href="https://donate.jointsdgfund.org/">Donate</a>
+                </div>
+                
+                <button class="message__btn-top">&#8593;</button>
             </div>
         </section>
     </main>

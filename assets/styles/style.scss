@@ -16,10 +16,11 @@
     // Colors
     --primary-color: black;
     --text-color: white;
+    --link-color: rgb(72, 178, 239);
 
     // Line height
-    --line-height-goal-p: 1.1;
-    --line-height-paragraph: 1.6;
+    --line-height-heading: 1.1;
+    --line-height-base: 1.6;
 
     // Font weight 
     --font-weight-normal: 400;
@@ -28,19 +29,23 @@
     --font-weight-bold: 900;
 
     // Space
+    --mini-space: 0.5rem;
     --small-space: 1rem;
     --normal-space: 1.5rem;
     --medium-space: 3rem;
     --big-space: 5rem;
     --mega-space: 10rem;
 
+    --giga-space: 15rem;
+
     // Font Sizes - Clamp
     /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-    --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5625rem);
+    --step--2: clamp(0.9rem, 0.6rem + 0.4075vw, 1rem);
+    --step--1: clamp(1rem, 0.8rem + 0.4275vw, 1.2rem);
+    --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5rem);
     --step-1: clamp(1.4rem, 1.384rem + 0.4742vw, 1.7rem);
-    --step-2: clamp(1.999rem, 1.8862rem + 0.4626vw, 2.4414rem);
-    --step-3: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
-    --step-4: clamp(3.552rem, 3.485rem + 0.2747vw, 3.8147rem);
+    --step-2: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
+    --step-3: clamp(3.552rem, 4rem + 0.35vw, 5rem);
 }
 //Globals
 body {
@@ -54,16 +59,20 @@ h2 {
     font-family: "bebasneue";
 }
 h1 {
-    font-size: var(--step-4);
+    font-size: var(--step-3);
 }
 h2 {
-    font-size: var(--step-3);
+    font-size: var(--step-2);
     margin-block-end: var(--small-space);
 }
 p {
     font-size: var(--step-0);
     font-weight: var(--font-weight-normal);
-    line-height: var(--line-height-paragraph);
+    line-height: var(--line-height-base);
+}
+a {
+    font-weight: var(--font-weight-medium);
+    color: var(--link-color);
 }
 .line-break {
     display: block;
@@ -80,6 +89,14 @@ p {
         opacity: 0;
     }
 }
+@keyframes arrow-up {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px); // you can adjust this height
+    }
+  }
 
 // Horizontal-Scroll
 .horizontal {
@@ -90,18 +107,19 @@ p {
   
     &__background {
       position: absolute;
-      height: 70%;
+      height: 60%;
       width: 150vw;
       bottom: 0;
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: bottom left;
 
       &--1 {
         background-image: url('../elements/village1.svg');
+        background-position: bottom right 15%;
       }
       &--2 {
         background-image: url('../elements/village.svg');
+        background-position: bottom left 15%;
       }
     }
     &__character {
@@ -116,16 +134,15 @@ p {
 // History about Maya
 .history { 
     &__heading {
-        font-size: var(--step-1);
-        font-weight: var(--font-weight-semibold);
-        text-transform: uppercase;
-        line-height: var(--line-height-goal-p);
+        font-size: var(--step-2);
+        line-height: var(--line-height-heading);
         max-width: 40ch;
+        margin-block-start: var(--mini-space);
     }
     &__drop {
         transition: transform 5s ease-in-out;
-        opacity: 100%;
         width: 8vh;
+        margin-block-start: var(--normal-space);
     }
     // Makes each part of the story fill the whole viewport
     &__part {
@@ -172,6 +189,7 @@ p {
         }
         &--river {
             background-color: #47433d;
+            padding: 0;
         }
         &--progress {
             background: 
@@ -189,7 +207,34 @@ p {
 
     &__landscape {
         position: absolute;
+        width: 225%;
         bottom: 0;
+        left: 0;
+        &--boiling {
+            left: -42%;
+        }
+        &--crowd {
+            left: -62%;
+        }
+        &--news {
+            width: 190%;
+            left: -45%;
+        }
+        &--statistic {
+            width: 200%;
+            left: -48%;
+        }
+        &--countries {
+            width: 150%;
+            left: -20%;
+        }
+        &--progress {
+            width: 250%;
+            left: -65%;
+        }
+        &--ending {
+            left: -60%;
+        }
     }
     &__importantText { 
         font-family: 'open-sans';
@@ -201,8 +246,10 @@ p {
         fill: none; 
         stroke: #1a3047; 
         stroke-miterlimit: 10; 
-        stroke-width: 165px;
+        stroke-width: 65px;
         position: absolute;
+        height: 100vh;
+        right: -86%;
 
         & path {
             stroke-dasharray: 4000;
@@ -253,38 +300,41 @@ p {
             width: 35ch;
         }
         &--written-firstline, &--written-secondline {
-            transition: all 7s;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
+            white-space: wrap;
+            display: block;
+            overflow-wrap: break-word;
+            visibility: hidden;
         }
         &--written-secondline {
             transition-delay: 2.2s;
         }
+        &.visible {
+            visibility: visible; /* show when ready */
+        }
         &--top {
-            margin-block-start: var(--mega-space);
+            margin-block-start: var(--giga-space);
         }
     }
     // Cuts the earth image in half
     &__earth-container {
-        width: 100%;
+        width: 200%;
         height: 100vh;
-        max-height: 400px;
+        max-height: 350px;
         overflow: hidden;
         position: absolute;
         bottom: 0;
     }
     &__character-img {
-        width: 10%;
+        width: 35%;
         padding-block-start: var(--small-space);
     }
     &__earth-img {
-        width: 70%;
+        width: 90%;
         transition: all 6s;
     }
     &__plant-img {
         position: absolute;
-        bottom: 10%;
+        bottom: 5%;
         transition: all 3s;
         z-index: 4;
     }
@@ -296,18 +346,38 @@ p {
     &__slogan {
         font-size: var(--step-0);
         margin-block-start: var(--medium-space);
-        color: rgb(72, 178, 239);
+        color: var(--link-color);
         text-transform: uppercase;
         font-weight: var(--font-weight-medium);
     }
-    &__btn {
-        padding: var(--normal-space);
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        gap: var(--small-space);
+        flex-wrap: wrap;
         margin-block-start: var(--medium-space);
+    }
+    &__btn {
+        width: 60%;
+        background-color: var(--text-color);
+        padding: var(--small-space);
         border-radius: var(--small-space);
-        border: none;
-        font-size: 0.9rem;
-        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        color: var(--primary-color);
         text-transform: uppercase;
+        font-size: var(--step--1);
+    }
+    &__btn-top {
+        position: absolute;
+        background-color: transparent;
+        color: var(--text-color);
+        border: none;
+        font-size: var(--step-3);
+        align-self: flex-end;
+        bottom: 20%;
+        right: 10%;
+        animation: arrow-up 1s ease-in-out infinite;
     }
 }
 
@@ -317,38 +387,66 @@ p {
     color: #8ba7b5;
     background-color: #09557e;
     &__text {
-        font-size: 0.8rem;
+        font-size: var(--step--2);
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .history__text--written-firstline,
-    .history__text--written-secondline {
-        white-space: wrap;
+@media only screen and (min-width: 900px) {
+    .horizontal {
+        &__background {
+            width: 150vw;
+            background-position: bottom left;
+        } 
     }
-    .history {
-        // TO SCALE BACKGROUND IAMGE ON MOBILE
-        &__part {
-            background-size: 150%;
-        }
-        &__character-img {
-            width: 35%;
-        }
     
-        &__boiling-img {
-            width: 55%;
+    .history {
+        &__drop {
+            width: 10vh;
         }
-        &__earth-img {
-            width: 90%;
+        &__landscape {
+            width: 100%;
+            left: 0;
         }
-        &__earth-container {
-            max-height: 170px;
+        &__river {
+            stroke-width: 165px;
+            right: 0;
         }
         &__text {
-            &--left, &--right {
-                width: 20ch;
-                margin: 0;
+            &--top {
+                margin-block-start: var(--mega-space);
             }
+            &--written-firstline, &--written-secondline {
+                white-space: normal;
+            }
+        }
+        &__character-img {
+            width: 10%;
+        }
+        &__earth-container {
+            width: 100%;
+            height: 70vh;
+            max-height: 400px;
+        }
+        &__earth-img {
+            width: 70%;
+        }
+        &__plant-img {
+            position: absolute;
+            bottom: 10%;
+            transition: all 3s;
+            z-index: 4;
+        }
+    }
+    .message {
+        &__btn {
+            width: 20%;
         }
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }

@@ -63,23 +63,27 @@ table {
 :root {
   --primary-color: black;
   --text-color: white;
-  --line-height-goal-p: 1.1;
-  --line-height-paragraph: 1.6;
+  --link-color: rgb(72, 178, 239);
+  --line-height-heading: 1.1;
+  --line-height-base: 1.6;
   --font-weight-normal: 400;
   --font-weight-medium: 600;
   --font-weight-semibold: 700;
   --font-weight-bold: 900;
+  --mini-space: 0.5rem;
   --small-space: 1rem;
   --normal-space: 1.5rem;
   --medium-space: 3rem;
   --big-space: 5rem;
   --mega-space: 10rem;
+  --giga-space: 15rem;
   /* @link https://utopia.fyi/type/calculator?c=390,18,1.333,1920,25,1.25,4,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-  --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5625rem);
+  --step--2: clamp(0.9rem, 0.6rem + 0.4075vw, 1rem);
+  --step--1: clamp(1rem, 0.8rem + 0.4275vw, 1.2rem);
+  --step-0: clamp(1.25rem, 1.0135rem + 0.4575vw, 1.5rem);
   --step-1: clamp(1.4rem, 1.384rem + 0.4742vw, 1.7rem);
-  --step-2: clamp(1.999rem, 1.8862rem + 0.4626vw, 2.4414rem);
-  --step-3: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
-  --step-4: clamp(3.552rem, 3.485rem + 0.2747vw, 3.8147rem);
+  --step-2: clamp(2.6647rem, 2.566rem + 0.4048vw, 3.0518rem);
+  --step-3: clamp(3.552rem, 4rem + 0.35vw, 5rem);
 }
 
 body {
@@ -95,18 +99,23 @@ h2 {
 }
 
 h1 {
-  font-size: var(--step-4);
+  font-size: var(--step-3);
 }
 
 h2 {
-  font-size: var(--step-3);
+  font-size: var(--step-2);
   margin-block-end: var(--small-space);
 }
 
 p {
   font-size: var(--step-0);
   font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-paragraph);
+  line-height: var(--line-height-base);
+}
+
+a {
+  font-weight: var(--font-weight-medium);
+  color: var(--link-color);
 }
 
 .line-break {
@@ -126,6 +135,14 @@ p {
     opacity: 0;
   }
 }
+@keyframes arrow-up {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
 .horizontal {
   position: relative;
   height: 100vh;
@@ -134,18 +151,19 @@ p {
 }
 .horizontal__background {
   position: absolute;
-  height: 70%;
+  height: 60%;
   width: 150vw;
   bottom: 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom left;
 }
 .horizontal__background--1 {
   background-image: url("../elements/village1.svg");
+  background-position: bottom right 15%;
 }
 .horizontal__background--2 {
   background-image: url("../elements/village.svg");
+  background-position: bottom left 15%;
 }
 .horizontal__character {
   position: absolute;
@@ -156,16 +174,15 @@ p {
 }
 
 .history__heading {
-  font-size: var(--step-1);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  line-height: var(--line-height-goal-p);
+  font-size: var(--step-2);
+  line-height: var(--line-height-heading);
   max-width: 40ch;
+  margin-block-start: var(--mini-space);
 }
 .history__drop {
   transition: transform 5s ease-in-out;
-  opacity: 100%;
   width: 8vh;
+  margin-block-start: var(--normal-space);
 }
 .history__part {
   height: 100vh;
@@ -194,6 +211,7 @@ p {
 }
 .history__part--river {
   background-color: #47433d;
+  padding: 0;
 }
 .history__part--progress {
   background: linear-gradient(rgb(71, 67, 61) 0%, rgb(14, 74, 119) 5%, rgb(40, 105, 165) 30%, rgb(124, 77, 41) 60%);
@@ -203,7 +221,34 @@ p {
 }
 .history__landscape {
   position: absolute;
+  width: 225%;
   bottom: 0;
+  left: 0;
+}
+.history__landscape--boiling {
+  left: -42%;
+}
+.history__landscape--crowd {
+  left: -62%;
+}
+.history__landscape--news {
+  width: 190%;
+  left: -45%;
+}
+.history__landscape--statistic {
+  width: 200%;
+  left: -48%;
+}
+.history__landscape--countries {
+  width: 150%;
+  left: -20%;
+}
+.history__landscape--progress {
+  width: 250%;
+  left: -65%;
+}
+.history__landscape--ending {
+  left: -60%;
 }
 .history__importantText {
   font-family: "open-sans";
@@ -215,8 +260,10 @@ p {
   fill: none;
   stroke: #1a3047;
   stroke-miterlimit: 10;
-  stroke-width: 165px;
+  stroke-width: 65px;
   position: absolute;
+  height: 100vh;
+  right: -86%;
 }
 .history__river path {
   stroke-dasharray: 4000;
@@ -251,36 +298,39 @@ p {
   width: 35ch;
 }
 .history__text--written-firstline, .history__text--written-secondline {
-  transition: all 7s;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
+  display: block;
+  overflow-wrap: break-word;
+  visibility: hidden;
 }
 .history__text--written-secondline {
   transition-delay: 2.2s;
 }
+.history__text.visible {
+  visibility: visible; /* show when ready */
+}
 .history__text--top {
-  margin-block-start: var(--mega-space);
+  margin-block-start: var(--giga-space);
 }
 .history__earth-container {
-  width: 100%;
+  width: 200%;
   height: 100vh;
-  max-height: 400px;
+  max-height: 350px;
   overflow: hidden;
   position: absolute;
   bottom: 0;
 }
 .history__character-img {
-  width: 10%;
+  width: 35%;
   padding-block-start: var(--small-space);
 }
 .history__earth-img {
-  width: 70%;
+  width: 90%;
   transition: all 6s;
 }
 .history__plant-img {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   transition: all 3s;
   z-index: 4;
 }
@@ -291,18 +341,38 @@ p {
 .message__slogan {
   font-size: var(--step-0);
   margin-block-start: var(--medium-space);
-  color: rgb(72, 178, 239);
+  color: var(--link-color);
   text-transform: uppercase;
   font-weight: var(--font-weight-medium);
 }
-.message__btn {
-  padding: var(--normal-space);
+.message__buttons {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  gap: var(--small-space);
+  flex-wrap: wrap;
   margin-block-start: var(--medium-space);
+}
+.message__btn {
+  width: 60%;
+  background-color: var(--text-color);
+  padding: var(--small-space);
   border-radius: var(--small-space);
-  border: none;
-  font-size: 0.9rem;
-  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  color: var(--primary-color);
   text-transform: uppercase;
+  font-size: var(--step--1);
+}
+.message__btn-top {
+  position: absolute;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  font-size: var(--step-3);
+  align-self: flex-end;
+  bottom: 20%;
+  right: 10%;
+  animation: arrow-up 1s ease-in-out infinite;
 }
 
 .footer {
@@ -312,31 +382,55 @@ p {
   background-color: #09557e;
 }
 .footer__text {
-  font-size: 0.8rem;
+  font-size: var(--step--2);
 }
 
-@media only screen and (max-width: 600px) {
-  .history__text--written-firstline,
-  .history__text--written-secondline {
-    white-space: wrap;
+@media only screen and (min-width: 900px) {
+  .horizontal__background {
+    width: 150vw;
+    background-position: bottom left;
   }
-  .history__part {
-    background-size: 150%;
+  .history__drop {
+    width: 10vh;
+  }
+  .history__landscape {
+    width: 100%;
+    left: 0;
+  }
+  .history__river {
+    stroke-width: 165px;
+    right: 0;
+  }
+  .history__text--top {
+    margin-block-start: var(--mega-space);
+  }
+  .history__text--written-firstline, .history__text--written-secondline {
+    white-space: normal;
   }
   .history__character-img {
-    width: 35%;
-  }
-  .history__boiling-img {
-    width: 55%;
-  }
-  .history__earth-img {
-    width: 90%;
+    width: 10%;
   }
   .history__earth-container {
-    max-height: 170px;
+    width: 100%;
+    height: 70vh;
+    max-height: 400px;
   }
-  .history__text--left, .history__text--right {
-    width: 20ch;
-    margin: 0;
+  .history__earth-img {
+    width: 70%;
+  }
+  .history__plant-img {
+    position: absolute;
+    bottom: 10%;
+    transition: all 3s;
+    z-index: 4;
+  }
+  .message__btn {
+    width: 20%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }/*# sourceMappingURL=style.css.map */
