@@ -341,7 +341,7 @@ a {
     }
     &__slogan {
         font-size: var(--step-0);
-        margin-block-start: var(--medium-space);
+        margin-block: var(--medium-space);
         color: var(--link-color);
         text-transform: uppercase;
         font-weight: var(--font-weight-medium);
@@ -352,7 +352,7 @@ a {
         width: 50%;
         gap: var(--small-space);
         flex-wrap: wrap;
-        margin-block-start: var(--medium-space);
+        margin-block-start: var(--normal-space);
     }
     &__btn {
         width: 60%;
