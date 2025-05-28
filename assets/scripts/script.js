@@ -6,18 +6,18 @@ const mediaQuery = window.matchMedia("(max-width: 599px)");
 
 function horizontalScroll() {
   if (mediaQuery.matches) {
-    // 👇 Clear all styles applied by GSAP when on small screens
+    // Clear all styles applied by GSAP when on small screens
     gsap.set(".horizontal__background", { clearProps: "all" });
     gsap.set(".horizontal__character", { clearProps: "all" });
     
-    // 👇 Remove all ScrollTriggers so nothing keeps running
+    // Remove all ScrollTriggers so nothing keeps running
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     inHorizontal = false;
     return;
   }
 
-  // 👇 Start horizontal scroll behavior for larger screens
+  // Start horizontal scroll behavior for larger screens
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   gsap.set(".horizontal", { clearProps: "all" });
 
@@ -59,48 +59,6 @@ function horizontalScroll() {
     });
   });
 }
-
-// Snap scroll logic
-let timeoutId;
-
-function snapScroll() {
-    if (window.innerWidth < 768 || inHorizontal) return;
-
-    const footerBuffer = 200; // Space before bottom to stop snapping
-    const scrollPos = window.scrollY;
-    const scrollBottom = scrollPos + window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-
-    if (scrollBottom + footerBuffer >= docHeight) return;
-
-    const sections = document.querySelectorAll('.history__part');
-    let closest = null;
-    let minDistance = Infinity;
-
-    sections.forEach(section => {
-        const offset = section.offsetTop;
-        const distance = Math.abs(offset - scrollPos);
-        if (distance < minDistance) {
-        minDistance = distance;
-        closest = section;
-        }
-    });
-
-    if (closest) {
-        window.scrollTo({
-        top: closest.offsetTop,
-        behavior: 'smooth'
-        });
-    }
-}
-
-// Debounced scroll event
-window.addEventListener('scroll', () => {
-  clearTimeout(timeoutId);
-  timeoutId = setTimeout(() => {
-    snapScroll();
-  }, 150);
-});
 
 window.addEventListener("load", horizontalScroll);
 window.addEventListener("resize", horizontalScroll);
