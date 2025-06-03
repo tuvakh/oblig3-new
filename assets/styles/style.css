@@ -113,6 +113,10 @@ p {
   line-height: var(--line-height-base);
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   font-weight: var(--font-weight-medium);
   color: var(--link-color);
@@ -173,6 +177,9 @@ a {
   z-index: 2;
 }
 
+.history {
+  overflow: hidden;
+}
 .history__heading {
   font-size: var(--step-2);
   line-height: var(--line-height-heading);
@@ -211,7 +218,6 @@ a {
 }
 .history__part--river {
   background-color: #47433d;
-  padding: 0;
 }
 .history__part--progress {
   background: linear-gradient(rgb(71, 67, 61) 0%, rgb(14, 74, 119) 5%, rgb(40, 105, 165) 30%, rgb(124, 77, 41) 60%);
@@ -225,30 +231,17 @@ a {
   bottom: 0;
   left: 0;
 }
-.history__landscape--boiling {
-  left: -42%;
-}
-.history__landscape--crowd {
-  left: -62%;
-}
 .history__landscape--news {
   width: 190%;
-  left: -45%;
 }
 .history__landscape--statistic {
   width: 200%;
-  left: -48%;
 }
 .history__landscape--countries {
   width: 150%;
-  left: -20%;
 }
 .history__landscape--progress {
   width: 250%;
-  left: -65%;
-}
-.history__landscape--ending {
-  left: -60%;
 }
 .history__importantText {
   font-family: "open-sans";
@@ -260,10 +253,10 @@ a {
   fill: none;
   stroke: #1a3047;
   stroke-miterlimit: 10;
-  stroke-width: 65px;
+  stroke-width: 40px;
   position: absolute;
   height: 100vh;
-  right: -86%;
+  right: -70%;
 }
 .history__river path {
   stroke-dasharray: 4000;
@@ -310,9 +303,9 @@ a {
   margin-block-start: var(--giga-space);
 }
 .history__earth-container {
-  width: 200%;
+  width: 100%;
   height: 100vh;
-  max-height: 350px;
+  max-height: 170px;
   overflow: hidden;
   position: absolute;
   bottom: 0;
