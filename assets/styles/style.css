@@ -297,7 +297,7 @@ a {
   visibility: hidden;
 }
 .history__text.visible {
-  visibility: visible; /* show when ready */
+  visibility: visible;
 }
 .history__text--top {
   margin-block-start: var(--giga-space);

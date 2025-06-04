@@ -96,7 +96,7 @@ a {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-30px); // you can adjust this height
+      transform: translateY(-30px);
     }
   }
 
@@ -297,7 +297,7 @@ right: -70%;
             visibility: hidden;
         }
         &.visible {
-            visibility: visible; /* show when ready */
+            visibility: visible; 
         }
         &--top {
             margin-block-start: var(--giga-space);
